@@ -1,0 +1,157 @@
+@font-face {
+    font-family: 's1';
+    src: url("./src/Font/SVN-DeFontePlus/SVN-DeFontePlus-DemiGras.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 's2';
+    src: url("./src/Font/SVN-DeFontePlus/SVN-DeFontePlus-Gros.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 's3';
+    src: url("./src/Font/SVN-DeFontePlus/SVN-DeFontePlus-Leger.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 's4';
+    src: url("./src/Font/SVN-DeFontePlus/SVN-DeFontePlus-Normale.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 'm1';
+    src:  url("./src/Font/Millionaire-Script.ttf") format('truetype');
+}
+
+h1 {
+    font-family: 's3', sans-serif;
+    font-size: 60px;
+}
+
+h2 {
+    font-family: 'm1', sans-serif;
+    font-size: 60px;
+}
+
+button {
+    font-family: 's3', sans-serif;
+    font-size: 32px;
+}
+
+p {
+    font-family: 's3', sans-serif;
+    font-size: 32px; 
+    line-height: 80.9%;
+    filter: opacity(0.8) drop-shadow(2px 2px 4px rgba(255, 255, 255, 0.527)) brightness(1.1) saturate(1.4);}
+
+html {
+    overflow: hidden;
+}
+
+
+
+html,body { 
+    font-family: 'Roboto Mono', monospace;
+    color: #333;
+  }
+body{
+    background-color: #D9D8D7;
+    position: absolute;
+    max-height:100%;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0px;
+}
+header {
+    background-color: unset !important;
+    position: absolute;
+    width: 100%;
+    z-index: 5; 
+}
+
+.logo {
+    background-color: #00000000;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+a img {
+    background-color: #00000000;
+   height: 65px;
+    transition: background-color .5s ease;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+a img:hover {
+    filter: invert(1);
+}
+
+.navigator {
+    margin-top: 20px;
+    margin-right: 20px;
+    gap: 57px;
+    display: flex;
+}
+
+a {
+    color: black;
+    font-family: 's3', sans-serif;
+    font-size: 32px; 
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+a:hover {
+    color: #B3B492;
+}
+
+nav {
+    max-width: 100%;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;   
+}
+
+.bg {
+   
+    max-height: 130%;
+    width: 108%;
+}
+
+@media (max-width: 1120px) {
+    .bg {
+        width: 200%;
+    }}
+
+@media (max-width: 560px) { 
+    .bg {
+        width: 300%;
+    }}
+
+#run {
+    width: 100%;
+    left: 12%;
+    bottom: 0;
+    z-index: 1;
+    position: absolute;
+    max-height: 130%;
+    height: 102%
+}
+
+#move {
+    left: 2%;
+    width: 90%;
+    position: absolute;
+    height: 100%;
+}
+
+
+  #main-div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }

@@ -3,7 +3,7 @@ const mainDiv = document.getElementById("run");
 
 const numParticles = 40;
 const minDistance = 20;
-const maxSpeed = 2;
+const maxSpeed = 20;
 
 const particleImages = [
     "src/Img/a/a1.svg",
@@ -93,13 +93,20 @@ for (let i = 0; i < numParticles; i++) {
         particleImage.src = newImageArray[i % newImageArray.length];
         circle.style.display = "block";
         particle.classList.add("new-image-particle"); // Add class for particles with new images
-
+   // Change maxSpeed to 0 for particles with images in particleImages array
+   if (particleImages.includes(particleImage.src)) {
+    particle.vx = (Math.random() - 0.5) * 0;
+    particle.vy = (Math.random() - 0.5) * 0;
+}
     });
 
     particle.addEventListener("mouseleave", () => {
         particleImage.src = particleImages[i % particleImages.length];
         circle.style.display = "none";
-        particle.classList.add("new-image-particle"); // Add class for particles with new images
+        particle.classList.remove("new-image-particle"); // Add class for particles with new images
+// Restore original maxSpeed when mouse leaves
+particle.vx = (Math.random() - 0.5) * maxSpeed;
+particle.vy = (Math.random() - 0.5) * maxSpeed;
 
     });
 }
@@ -117,13 +124,16 @@ function updateParticles() {
             const dy = particle.y - mainDiv.clientHeight / 2;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
+            // Adjust maxSpeed based on the particle's image
+            const currentMaxSpeed = particleImages.includes(particleImage.src) ? maxSpeed : 0;
+
             if (distance < minDistance) {
                 const angle = Math.atan2(dy, dx);
-                particle.vx = Math.cos(angle) * maxSpeed;
-                particle.vy = Math.sin(angle) * maxSpeed;
+                particle.vx = Math.cos(angle) * currentMaxSpeed;
+                particle.vy = Math.sin(angle) * currentMaxSpeed;
             } else {
-                particle.vx = (Math.random() - 0.5) * maxSpeed;
-                particle.vy = (Math.random() - 0.5) * maxSpeed;
+                particle.vx = (Math.random() - 0.5) * currentMaxSpeed;
+                particle.vy = (Math.random() - 0.5) * currentMaxSpeed;
             }
         }
 

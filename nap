@@ -1,0 +1,116 @@
+<div class="move" id="move">
+    <div id="b" class='a1'> <img src="./src/Img/a/a1.svg" alt="img"> </div>
+    <div id="a" class='a2'> <img src="./src/Img/a/a2.svg" alt="img"> </div>
+    <div id="a" class='a3'> <img src="./src/Img/a/a3.svg" alt="img"> </div>
+    <div id="a" class='a4'> <img src="./src/Img/a/a4.svg" alt="img"> </div>
+    <div id="a" class='a5'> <img src="./src/Img/a/a5.svg" alt="img"> </div>
+    <div id="a" class='a6'> <img src="./src/Img/a/a6.svg" alt="img"> </div>
+    <div id="a" class='a7'> <img src="./src/Img/a/a7.svg" alt="img"> </div>
+    <div id="a" class='a8'> <img src="./src/Img/a/a8.svg" alt="img"> </div>
+    <div id="a" class='a9'> <img src="./src/Img/a/a9.svg" alt="img"> </div>
+    <div id="a" class='a10'> <img src="./src/Img/a/a10.svg" alt="img"> </div>
+</div>
+
+
+$(document).ready(function() {
+    var $elements = [$('.a1'), $('.a2'), $('.a3'), $('.a4'), $('.a5'), $('.a6'), $('.a7'), $('.a8'), $('.a9'), $('.a10')];
+    
+    for (var i = 0; i < $elements.length - 1; i++) {
+        animateDivWithReference($elements[i], $elements[i + 1]);
+    }
+    
+    animateDiv($elements[$elements.length - 1]); // Animate the last element separately
+});
+
+function animateDivWithReference($target, $referenceElement) {
+    var newq = $referenceElement.offset(); // Use the offset of the reference element
+    var oldq = $target.offset();
+    var speed = calcSpeed([oldq.top, oldq.left], [newq.top, newq.left]);
+
+    var $parentContainer = $target.parent();
+    var containerWidth = $parentContainer.width();
+    var containerHeight = $parentContainer.height();
+
+    // Define the dimensions of the exclusion zone (top-right square)
+    var exclusionZoneWidth = 100;
+    var exclusionZoneHeight = 100;
+
+    // Calculate the maximum positions considering the exclusion zone
+    var maxX = containerWidth - $target.width();
+    var maxY = containerHeight - $target.height();
+
+    // Adjust the maximum X and Y positions to exclude the top-right square
+    maxX = Math.max(maxX - exclusionZoneWidth, 100);
+    maxY = Math.max(maxY - exclusionZoneHeight, 100);
+
+    newq.top = Math.max(newq.top, 0); // Prevent going above the top edge
+    newq.left = Math.max(newq.left, 20); // Prevent going beyond the left edge
+    newq.top = Math.min(newq.top, maxY); // Prevent going beyond the bottom edge
+    newq.left = Math.min(newq.left, maxX); // Prevent going beyond the right edge
+
+    $target.animate(
+        {
+            top: newq.top,
+            left: newq.left
+        },
+        speed,
+        function () {
+            // Add a condition to stop the animation when close to the reference element
+            var distance = Math.sqrt(Math.pow(newq.top - oldq.top, 2) + Math.pow(newq.left - oldq.left, 2));
+            if (distance < 5) {
+                return; // Stop the animation
+            }
+            animateDivWithReference($target, $referenceElement);
+        }
+    );
+}
+
+// Rest of the code remains the same
+
+function makeNewPosition($container) {
+    var h = $container.height();
+    var w = $container.width();
+    var nh = Math.floor(Math.random() * h);
+    var nw = Math.floor(Math.random() * w);
+    return [nh, nw];
+}
+
+function animateDiv($target) {
+    var newq = makeNewPosition($target.parent());
+    var oldq = $target.offset();
+    var speed = calcSpeed([oldq.top, oldq.left], newq);
+
+    $target.animate({
+        top: newq[0],
+        left: newq[1]
+    }, speed, function() {
+        animateDiv($target);
+    });
+};
+
+// The calcSpeed() function remains the same
+
+var isHovered = false;
+
+$("#b").mouseenter(function() {
+    isHovered = true;
+}).mouseleave(function() {
+    isHovered = false;
+});
+
+  
+  
+  function calcSpeed(prev, next) {
+  
+      var x = Math.abs(prev[1] - next[1]);
+      var y = Math.abs(prev[0] - next[0]);
+  
+      var greatest = x > y ? x : y;
+  
+  
+      var speedModifier = isHovered ? 0.08 : 0.9;
+  
+    var speed = Math.ceil(greatest / speedModifier);
+  
+    return speed;
+  }
