@@ -1,26 +1,26 @@
 @font-face {
     font-family: 's1';
-    src: url("./src/Font/SVN-DeFontePlus/SVN-DeFontePlus-DemiGras.otf") format('opentype');
+    src: url("../story/Font/SVN-DeFontePlus/SVN-DeFontePlus-DemiGras.otf") format('opentype');
 }
 
 @font-face {
     font-family: 's2';
-    src: url("./src/Font/SVN-DeFontePlus/SVN-DeFontePlus-Gros.otf") format('opentype');
+    src: url("../story/Font/SVN-DeFontePlus/SVN-DeFontePlus-Gros.otf") format('opentype');
 }
 
 @font-face {
     font-family: 's3';
-    src: url("./src/Font/SVN-DeFontePlus/SVN-DeFontePlus-Leger.otf") format('opentype');
+    src: url("../story/Font/SVN-DeFontePlus/SVN-DeFontePlus-Leger.otf") format('opentype');
 }
 
 @font-face {
     font-family: 's4';
-    src: url("./src/Font/SVN-DeFontePlus/SVN-DeFontePlus-Normale.otf") format('opentype');
+    src: url("../story/Font/SVN-DeFontePlus/SVN-DeFontePlus-Normale.otf") format('opentype');
 }
 
 @font-face {
     font-family: 'm1';
-    src:  url("./src/Font/Millionaire-Script.ttf") format('truetype');
+    src:  url("../story/Font/Millionaire-Script.ttf") format('truetype');
 }
 
 h1 {
