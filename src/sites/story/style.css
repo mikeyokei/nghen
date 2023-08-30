@@ -98,7 +98,7 @@ a img:hover {
 a {
     color: black;
     font-family: 's3', sans-serif;
-    font-size: 32px; 
+    font-size: 24px; 
     text-decoration: none;
     transition: all 0.3s;
 }
@@ -156,7 +156,7 @@ nav {
     height: 100%;
     margin-left: auto;
     margin-right: auto;
-    z-index: 5;    
+    z-index: 2;    
 
 }
 .swiper-slide {

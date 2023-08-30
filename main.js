@@ -3,7 +3,7 @@ const mainDiv = document.getElementById("run");
 
 const numParticles = 40;
 const minDistance = 20;
-const maxSpeed = 20;
+const maxSpeed = 2;
 
 const particleImages = [
     "src/Img/a/a1.svg",
