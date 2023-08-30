@@ -217,3 +217,7 @@ nav {
         grid-gap: 10em;
         grid-template-columns: auto auto;
     }
+
+    .nav a {
+        font-size: 32px;
+    }
