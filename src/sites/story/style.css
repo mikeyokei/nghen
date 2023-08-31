@@ -160,12 +160,12 @@ nav {
 
 }
 .swiper-slide {
+    color: black;
     position: relative;
     text-align: center;
     font-size: 18px;
     display: flex;
     justify-content: center;
-    top: 375px;
 }
 
 .swiper-pagination-bullet-active{
@@ -173,9 +173,9 @@ nav {
 }
 
 .swiper-pagination{
-    z-index: 6;
+   
     left: 47%;
-    top: 370px;
+    top: 37%;
     grid-template-columns: 16px 16px 16px 16px;
     position: absolute;
     height: 20px;
@@ -185,25 +185,40 @@ nav {
     }
     
     .swiper-pagination-bullet {
+        
         height: 20px ;
         width: 20px;
         display: grid;
         background: radial-gradient(circle, #8886865e 0%, #03a8f400 80%);
         border-radius: 50px;
         filter: blur(30%);
+        cursor: pointer;
     }
 
      
     .swiper-pagination-bullet:hover {
+        z-index: 6;
         background: radial-gradient(circle, #fffcfcbb 0%, #afafaf9e 80%);
     }
 
     .swiper-slide p {
-        width: 40%;
+        top: 18%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        position: absolute;
+        width: 540px;
+        height: 540px;
     }
+
+
+
     .swiper-slide p:hover {
+        z-index: 2;
         cursor: pointer;
+        background: radial-gradient(50% 50% at 50% 50%, #B1B28C 29.00%, rgba(255, 255, 255, 0.00) 100%);
     }
+
     .swiper-slide.color-4 {
         align-items: center;
         justify-content: revert;
@@ -213,11 +228,32 @@ nav {
     }
 
     .nav {
-        display: grid;
-        grid-gap: 10em;
+        z-index: 6;
+        position: absolute;
+        top: 60%;
+        height: 40px;
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
+        display: flex;
         grid-template-columns: auto auto;
+        gap: 10em;
     }
 
     .nav a {
         font-size: 32px;
     }
+.nav a:hover {
+    color:#fefefe;
+   filter: drop-shadow(0 0 0.75rem #9fac52a5);
+}
+
+.nav:hover {
+    color: black;
+    z-index: 6;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 18.23%, rgba(229, 229, 218, 0) 26.56%, #B3B492 60.19%, rgba(218, 219, 202, 0.235) 90.25%, rgba(255, 255, 255, 0) 40.67%);
+}
+.nav:active {
+    color: white;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 18.23%, rgba(229, 229, 218, 0.00) 26.56%, #B3B492 42.19%, rgba(218, 219, 202, 0.19) 56.25%, rgba(255, 255, 255, 0.00) 66.67%);
+}
