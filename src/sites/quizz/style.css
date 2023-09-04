@@ -454,3 +454,81 @@ li.mom {
         align-items: start!important;
     
 }
+
+.opt3 {
+    width: 100%;
+    top: 40%;
+position:absolute;
+z-index: 2;
+display: flex;
+flex-direction: column;
+gap: 2em;
+align-items: center;
+}
+
+.opt3 a {
+    display: block;
+    font-family: 'm1', sans-serif !important;
+    font-size: 32px !important;
+    line-height: 116.2% !important;
+}
+
+.opt3 button {
+    width: 30% !important;
+}
+
+.swiper-slide.color-1 .nav {
+    top: 72% !important;
+}
+
+.paper-content {
+    height: 100%;
+    max-height: 100%;
+    top: 0px; left: 0px; bottom: 0px; right: 0px;
+    background: linear-gradient(transparent, transparent 38px, rgb(0, 0, 0) 28px);
+    background-size: 40px 40px;
+}
+
+.paper-content textarea {
+    font-family: 'm1', sans-serif !important;
+    font-size: 32px !important;
+    line-height: 116.2% !important;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    line-height: 30px;
+    padding: 0px 10px;
+    border: 0;
+    background: transparent;
+    color: rgb(2, 2, 2);
+   
+      text-align: left;
+ 
+    
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.paper {
+    flex-direction: column;
+    display: flex;
+    height: 42%;
+    width: 30%;
+    min-width: 25%;
+    max-width: 300px;
+    position: absolute;
+    z-index: 3;
+    top: 24%;
+box-shadow: 0 0 180px #b0b276;
+}
+
+.swiper-slide.color-4 span {
+    font-family: 's3', sans-serif;
+    font-size: 32px; 
+    padding: 1em;
+}
+
+.swiper-slide.color-4 .nav {
+    top: 78% !important;
+}
