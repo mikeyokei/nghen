@@ -89,3 +89,60 @@ textarea.addEventListener('input', function () {
     varnameElement.textContent = textarea.value;
 });
 
+///
+const parentsAndVarname = document.querySelectorAll('.parent, .varname'); // Select all elements with class 'parent' or 'varname'
+let z = 1;
+
+parentsAndVarname.forEach((element) => {
+  element.addEventListener('mousedown', (event) => {
+    z++;
+    element.style.zIndex = z;
+
+    let startX = event.clientX;
+    let startY = event.clientY;
+
+    let startLeft = parseFloat(getComputedStyle(element).left);
+    let startTop = parseFloat(getComputedStyle(element).top);
+
+    const onMouseMove = (e) => {
+      const deltaX = e.clientX - startX;
+      const deltaY = e.clientY - startY;
+
+      element.style.left = startLeft + deltaX + 'px';
+      element.style.top = startTop + deltaY + 'px';
+
+      // Check for overlap with other elements
+      parentsAndVarname.forEach((otherElement) => {
+        if (otherElement !== element) {
+          const rect1 = element.getBoundingClientRect();
+          const rect2 = otherElement.getBoundingClientRect();
+
+          const overlapX = Math.max(0, Math.min(rect1.right, rect2.right) - Math.max(rect1.left, rect2.left));
+          const overlapY = Math.max(0, Math.min(rect1.bottom, rect2.bottom) - Math.max(rect1.top, rect2.top));
+
+          if (overlapX > 0 && overlapY > 0) {
+            // There is an overlap, change the background color
+            element.style.filter = 'contrast(1) saturate(1.1) brightness(1.1) drop-shadow(5px 5px 15px white)'; // Adjust the drop-shadow parameters and color as needed
+            otherElement.style.filter = 'contrast(1) saturate(1.1) brightness(1.1) drop-shadow(5px 5px 15px white)';
+            element.style.boxShadow = '0 0 10px white'; // Adjust shadow properties as needed
+            otherElement.style.boxShadow = '0 0 10px white';
+          } else {
+            // No overlap, revert to original background color
+            element.style.filter = ''; // Remove inline style to use CSS rules
+            otherElement.style.filter = ''; // Remove inline style to use CSS rules
+            element.style.boxShadow = ''; // Remove inline style to use CSS rules
+            otherElement.style.boxShadow = '';
+          }
+        }
+      });
+    };
+
+    const onMouseUp = () => {
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  });
+});
