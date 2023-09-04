@@ -164,7 +164,7 @@ nav {
     .swiper-slide p {
         cursor: default;
 
-        top: 18%;
+        top: 16%;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -285,7 +285,7 @@ textarea {
     display: grid;
     /* max-height: 331px; */
     width: 100%;
-    top: 40%;
+    top: 38%;
     z-index: 6;
     position: absolute;
     flex-direction: column-reverse;
