@@ -359,6 +359,18 @@ p.color2  {
     border-bottom: none !important;
 }
 
+
+
+.custom-dropdown button:hover span,
+.custom-dropdown button:hover img.icon {
+    filter: invert(1) brightness(0.7); /* Apply a brightness effect to both the span and img.icon on hover */
+}
+
+.custom-dropdown button span,
+.custom-dropdown button img.icon {
+    transition: filter 0.3s; /* Add a transition for smooth filter (brightness) change */
+}
+
 .custom-dropdown ul {
     height: 100%;
     width: 100%;
