@@ -7,7 +7,7 @@ var swiper = new Swiper('.swiper-container', {
     initialSlide: 0,
     slideToClickedSlide: true,
  
-
+    speed: 0, 
     clickable: true,
 });
 
