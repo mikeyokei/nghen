@@ -60,6 +60,7 @@ p {
 
 html {
     overflow: hidden;
+    user-select: none;
 }
 
 
@@ -304,6 +305,7 @@ textarea {
 }
 
 #round {
+    user-select: none;
     background-color: rgba(194, 197, 186, 0.12);
     backdrop-filter: blur(0.5px);
     position: relative;
