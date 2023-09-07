@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Selection</title>
+    <style>
+        .button-group button {
+            margin: 5px;
+            padding: 10px;
+            background-color: #ffffff;
+        }
+        
+        .button-group button.selected {
+            background-color: #00ff00;
+        }
+
+        .disabled {
+            background-color: #cccccc;
+        }
+        .button-group button[draggable="true"]  {
+            position: relative;
+        }
+/* Style the <h1> elements */
+    h1 {
+        color: blue;
+        font-size: 24px;
+        /* Add more CSS styles as needed */
+    }
+    
+    #bold-word {
+        font-weight: bold;
+    }    
+
+        
+    </style>
+</head>
+<body>
+    <div class="buttons">
+        <div class="button-group">
+            <button id="A" draggable="true">a</button>
+            <button id="B" draggable="true">b</button>
+            <button id="C" draggable="true">c</button>
+            <button id="D" draggable="true">d</button>
+        </div>
+        <div class="button-group">
+            <button id="1">1</button>
+            <button id="2">2</button>
+            <button id="3">3</button>
+            <button id="4">4</button>
+        </div>
+    </div>
+    <button id="submit">Submit</button>
+    <div id="answer"></div>
+    <button id="generate">Generate</button>
+    <img id="bg" src="./src/Img/icon.svg" alt="Background Image">
+
+    <script>
+        const topics = {
+            "A": ["Answer 1A", "Apple 2A", "linen 2A", "Pear 3A", "Lion 4A",  "Lionhai 4A",  "Lionpa 4A"],
+            "B": ["Answer 1B", "Banana 2B", "Orange 3B", "Tiger 1B",  "Haii 1B", "Niche heheheheh 1B"],
+            "C": ["Answer 1C", "Cherry 2C", "Grapes 3C", "Elephant 1C"],
+            "D": ["Answer 1D", "Dog 2D", "Cat 3D", "Fish 1D"],
+            "F": ["Fnswer 1F", "Fpple 2F", "linen 2F", "Pefr 3F", "Lion 4F", "Lionhfi 4F", "Lionpf 4F"],
+            "G": ["Gnswer 1G", "Gpple 2G", "linen 3G", "Pegr 4G", "Lion 3G", "Lionhgi 3G", "Lionpg 3G"],
+            "E": ["Enswer 3E", "Epple 3E", "linen 3E", "Peer 3E", "Lion 3E", "Lionhei 3E", "Lionpe 3E"],
+            "H": ["Hnswhr 3H", "Hpplh 3H", "linhn 3H", "Phhr 3H", "Lion 3H", "Lionhhi 3H", "Lionph 3H"],
+            "J": ["Jnswjr 3J", "Jpplj 3J", "linjn 3J", "Pjjr 3J", "Lion 3J", "Lionjji 3J", "Lionpj 3J"],
+        };
+        
+        const states = {
+            "1": ["Answer 1A", "Answerser 1B", "Kiitos 1C", "Answer 1D", "Fish 1D", "Haii 1B", "Niche heheheheh 1B"],
+            "2": ["Apple 2A", "linen 2A", "Banana 2B", "Cherry 2C", "Dog 2D", "Tiger 1B"],
+            "3": ["Pear heheheheh 3A", "Orange heheheheh 3A", "Catto heheheheh 3A", "Niche heheheheh 3A", 
+            "numero haihai 3A", "Anteeksi moimoi 3A", "Hei hei 3A", "Moi hei 3A", "Tantan hei 3A",
+            "Orange 3B", "Pear 3A", "Orange 3B", "Grapes 3C", "Cat 3D", "Niche heheheheh 3B", "Haii 3B", 
+            "Fnswer 3F", "Fpple 3F", "linen 3F", "Pefr 3F", "Lion 3F", "Lionhfi 3F", "Lionpf 3F",
+            "Gnswer 3G", "Gpple 3G", "linen 3G", "Pegr 3G", "Lion 3G", "Lionhgi 3G", "Lionpg 3G",
+            "Enswer 3E", "Epple 3E", "linen 3E", "Peer 3E", "Lion 3E", "Lionhei 3E",
+            "Hnswhr 3H", "Hpplh 3H", "linhn 3H", "Phhr 3H",
+            "Jnswjr 3J", "Jpplj 3J", "linjn 3J", "Pjjr 3J", "Lion 3J",
+            ],
+            "4": ["Lion 4A"],
+        };
+        
+       
+        const selectedButtons = new Set();
+        const answerContainer = document.getElementById("answer");
+        const generateButton = document.getElementById("generate");
+        let currentAnswerIndex = 0;
+
+        
+        function updateButton(buttonId) {
+            const button = document.getElementById(buttonId);
+        
+            if (button.classList.contains("selected")) {
+                button.classList.remove("selected");
+                selectedButtons.delete(buttonId);
+            } else {
+                // Check if it's a letter button (A-D)
+                if (buttonId.match(/[A-J]/)) {
+                    button.classList.add("selected");
+                    selectedButtons.add(buttonId);
+                } else if (buttonId.match(/[1-4]/)) {
+                    // Check if it's a number button (1-4) and deselect others
+                    document.querySelectorAll(".button-group .selected").forEach(selectedButton => {
+                        if (selectedButton.id.match(/[1-4]/)) {
+                            selectedButton.classList.remove("selected");
+                            selectedButtons.delete(selectedButton.id);
+                        }
+                    });
+                    button.classList.add("selected");
+                    selectedButtons.add(buttonId);
+                }
+            }
+        }
+        
+        function toggleAnswerState(button) {
+            if (button.classList.contains("disabled")) {
+                button.classList.remove("disabled");
+            } else {
+                button.classList.add("disabled");
+            }
+        }
+        
+        function generateAnswer() {
+            const letterButtons = Array.from(selectedButtons).filter(buttonId => buttonId.match(/[A-J]/));
+            const numberButton = Array.from(selectedButtons).find(buttonId => buttonId.match(/[1-4]/));
+        
+            if (letterButtons.length > 0 && numberButton) {
+                const number = numberButton.charAt(0);
+                const matchingAnswers = letterButtons.flatMap(letterButton => {
+                    const selectedLetter = letterButton.charAt(0);
+        
+                    // Check if the selected number is "3," "2," "1," or "4"
+                    if (["3", "2", "1", "4"].includes(number)) {
+                        return [...states["3"], ...states[number]].filter(answer => answer.includes(selectedLetter));
+                    } else {
+                        return states[number].filter(answer => answer.includes(selectedLetter));
+                    }
+                });
+        
+                if (matchingAnswers.length > 0) {
+                    // Clear previous buttons
+                    answerContainer.innerHTML = '';
+        
+                    // Create buttons for up to 4 matching answers
+                    for (let i = 0; i < Math.min(20, matchingAnswers.length); i++) {
+                        const button = document.createElement('button');
+                        const answerText = matchingAnswers[i].replace(/\s+\d+[A-J]$/, '');
+        
+                        // Check if the answer is from const states "3"
+                        const isFromStates3 = states["3"].includes(matchingAnswers[i]);
+        
+                        // Split the answer text into words
+                        const words = answerText.split(' ');
+        
+                        // Create a new array to store the formatted words
+                        const formattedWords = words.map((word, index) => {
+                            // Make the first word (index 0) bold for the answers from const states "3"
+                            if (index === 0 && isFromStates3) {
+                                // Wrap the word in a <div> with id for styling
+                                return `<div id="bold-word">${word}</div>`;
+                            }
+                            return word;
+                        });
+        
+                        // Join the formatted words back into a single string
+                        const formattedAnswer = formattedWords.join(' ');
+        
+                        button.innerHTML = formattedAnswer;
+                        button.id = `answerbutton${i + 1}`;
+                        button.addEventListener('click', () => {
+                            toggleAnswerState(button);
+                        });
+                        answerContainer.appendChild(button);
+                    }
+        
+                    // Enable the "Generate" button
+                    generateButton.disabled = false;
+                } else {
+                    answerContainer.textContent = "No matching answers found.";
+                }
+            } else {
+                answerContainer.textContent = "Please select one letter (A-J) and one number (1-4).";
+            }
+        }
+        
+
+        generateButton.addEventListener("click", () => {
+            generateNextAnswer();
+        });
+
+        const usedAnswers = new Set();
+
+        
+        function generateNextAnswer() {
+            const disabledAnswerButtons = Array.from(document.querySelectorAll(".disabled"));
+        
+            if (disabledAnswerButtons.length > 0) {
+                const letterButtons = Array.from(selectedButtons).filter(buttonId => buttonId.match(/[A-J]/));
+                const numberButton = Array.from(selectedButtons).find(buttonId => buttonId.match(/[1-4]/));
+                const number = numberButton.charAt(0);
+        
+                // Check if the selected number is "3", "2", "1", or "4"
+                if (["3", "2", "1", "4"].includes(number)) {
+                    // Combine answers from const states["3"] and const states[number]
+                    const combinedAnswers = [...states["3"], ...states[number]];
+        
+                    // Filter answers based on the selected letter
+                    const matchingAnswers = letterButtons.flatMap(letterButton => {
+                        const selectedLetter = letterButton.charAt(0);
+                        return combinedAnswers.filter(answer => answer.includes(selectedLetter));
+                    });
+        
+                    // Filter out used answers
+                    const availableAnswers = matchingAnswers.filter(answer => !usedAnswers.has(answer));
+        
+                    if (availableAnswers.length > 0) {
+                        disabledAnswerButtons.forEach(button => {
+                            // Generate a random index for the next answer
+                            const randomIndex = Math.floor(Math.random() * availableAnswers.length);
+                            const nextAnswer = availableAnswers[randomIndex];
+                            const answerText = nextAnswer.replace(/\s+\d+[A-J]$/, '');
+        
+                            // Check if the answer is from const states["3"]
+                            const isFromStates3 = states["3"].includes(nextAnswer);
+        
+                            // Split the answer text into words
+                            const words = answerText.split(' ');
+        
+                            // Create a new array to store the formatted words
+                            const formattedWords = words.map((word, index) => {
+                                // Make the first word (index 0) bold for the first answer from const states "3"
+                                return (index === 0 && isFromStates3) ? `<strong>${word}</strong>` : word;
+                            });
+        
+                            // Join the formatted words back into a single string
+                            const formattedAnswer = formattedWords.join(' ');
+        
+                            button.innerHTML = formattedAnswer;
+                            toggleAnswerState(button);
+        
+                            // Add the used answer to the set
+                            usedAnswers.add(nextAnswer);
+        
+                            // Remove the answer from availableAnswers
+                            availableAnswers.splice(randomIndex, 1);
+                        });
+                    } else {
+                        // Reset used answers if all answers have been used
+                        usedAnswers.clear();
+                        generateNextAnswer();
+                    }
+                }
+            }
+        }
+        
+        
+        
+        document.querySelectorAll(".button-group button").forEach(button => {
+            button.addEventListener("click", () => {
+                const buttonId = button.id;
+                updateButton(buttonId);
+            });
+        });
+
+        
+
+        document.getElementById("submit").addEventListener("click", generateAnswer);
+        
+////dhbvs
+
+const draggableButtons = document.querySelectorAll('.button-group button[draggable="true"]');
+let z = 1;
+const bgImage = document.getElementById('bg'); // Get the img element with the ID "bg"
+
+
+
+draggableButtons.forEach((element) => {
+    element.addEventListener('mousedown', (event) => {
+        z++;
+        element.style.zIndex = z;
+
+        let startX = event.clientX;
+        let startY = event.clientY;
+
+        let startLeft = parseFloat(getComputedStyle(element).left);
+        let startTop = parseFloat(getComputedStyle(element).top);
+
+        const onMouseMove = (e) => {
+            const deltaX = e.clientX - startX;
+            const deltaY = e.clientY - startY;
+
+            element.style.left = startLeft + deltaX + 'px';
+            element.style.top = startTop + deltaY + 'px';
+
+            // Check for overlap with other elements
+            const rectImg = bgImage.getBoundingClientRect();
+            const rectElement = element.getBoundingClientRect();
+
+            const overlapX = Math.max(0, Math.min(rectImg.right, rectElement.right) - Math.max(rectImg.left, rectElement.left));
+            const overlapY = Math.max(0, Math.min(rectImg.bottom, rectElement.bottom) - Math.max(rectImg.top, rectElement.top));
+
+            if (overlapX > 0 && overlapY > 0) {
+                element.style.color = 'red'; 
+                // There is an overlap, change the filter style of the img element
+                bgImage.style.filter = 'contrast(1) saturate(1.1) brightness(1.1) drop-shadow(5px 5px 15px white)';
+                // Change the text color of the draggableButtons
+            } else {
+                // No overlap, revert the filter style and text color
+                bgImage.style.filter = '';
+                element.style.color = '';
+                
+            }
+        };
+
+        const onMouseUp = () => {
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        };
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    });
+    element.addEventListener('dragstart', event => {
+        event.preventDefault(); // Prevent the default drag-and-drop behavior
+    });
+});
+
+        
+        
+        
+    </script>
+</body>
+</html>

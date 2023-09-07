@@ -275,7 +275,6 @@ textarea {
 
 *:focus {
     outline: none;
-    border-bottom: 2px solid rgb(0, 0, 0);
 
 }
 
@@ -531,4 +530,251 @@ box-shadow: 0 0 180px #b0b276;
 
 .swiper-slide.color-4 .nav {
     top: 78% !important;
+}
+
+.button-group button {
+    font-family: 'm1', sans-serif;
+    font-size: 32px;
+    margin: 5px;
+    padding: 10px;
+   
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button-group button.selected {
+   color: #B3B492;
+}
+
+.disabled {
+    background-color: #cccccc;
+}
+.button-group button[draggable="true"]  {
+    position: relative;
+    z-index: 7;
+}
+#bold-word {
+    font-weight: bold;
+}    
+
+
+img.bg {
+  width: 100%;
+  height: 100%;
+  max-width: 540px;
+  max-height: 460px;
+}
+
+#bg {
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.swiper-slide.color-5 .nav {
+    top: 73% !important;
+    
+}
+
+.swiper-slide.color-5 p {
+    width: 30%;
+    top: 9%;
+    line-height: 114.2%;
+}
+
+button#A {
+    top: 8%;
+    right: 70%;
+}
+
+button#B {
+    top: 10%;
+    right: 90%;
+}
+
+button#C {
+    top: 20%;
+    right: 104%;
+}
+
+button#D {
+    top: 26%;
+    right: 99%;
+}
+
+button#F {
+    bottom: 18%;
+    left: 100%;
+}
+
+button#G {
+    bottom: 16%;
+    Left: 89%;
+}
+
+button#H {
+    bottom: 14%;
+    Left: 129%;
+}
+
+button#J {
+    bottom: 10%;
+    left: 124%;
+}
+
+button#E {
+    bottom: 20%;
+    left: 80%;
+}
+
+.swiper-slide.color-6 p {
+    top: 8% !important;
+    flex-direction: column;
+    width: 50%;
+    gap: 1em;
+    z-index: 6;
+    line-height: 114.6%;
+}
+
+.swiper-slide.color-6 .nav {
+    top: 80% !important;
+    
+}
+
+.swiper-slide.color-6 .buttons {
+    top: 40%;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: center !important;
+    align-self: center;
+    width: 100%;
+   
+}
+
+.swiper-slide.color-6 .button-group button:hover {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #a9ab88 51.56%, rgba(255, 255, 255, 0.00) 100%);
+    color: #010101;
+}
+
+.swiper-slide.color-6 .button-group button.selected {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #a9ab88 51.56%, rgba(255, 255, 255, 0.00) 100%);
+    color: #ffffff;
+}
+
+.swiper-slide.color-6 .button-group button {
+    padding-bottom: 4px !important;
+   width: 100%;}
+
+.roundbg {
+    align-self: center;
+    position: absolute;
+    z-index: -3;
+    border-radius: 532px;
+background: radial-gradient(50% 50.00% at 50% 50.00%, #D9D9D9 0%, #B3B492 55.21%, rgba(217, 217, 217, 0.00) 100%);
+height: 532px;
+width: 532px;
+
+}
+
+.swiper-slide.color-7 .nav {
+    align-self: center !important;
+   justify-self: center !important;
+    top: unset !important;
+    gap: 60%;
+    height: 300px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #B3B492 51.56%, rgba(255, 255, 255, 0.00) 100%);
+}
+
+.swiper-slide.color-7 p {
+    align-self: center !important;
+   justify-self: center !important;
+    top: unset !important;
+    gap: 50%;
+    height: 532px;
+    width: 532px;
+    line-height: 114.2%;
+    border-radius: 532px;
+    z-index:7;
+background: radial-gradient(50% 50.00% at 50% 50.00%, #D9D9D9 0%, #9c9d7e 55.21%, rgba(217, 217, 217, 0.00) 100%);
+}
+
+.swiper-slide.color-7 button.nav {
+    z-index: 8;
+}
+
+.swiper-slide.color-7 button.back:hover {
+   color:#fefefe;
+}
+
+.swiper-slide.color-7 button.cont:hover {
+    color:#fefefe;
+ }
+
+ .tiltle {
+    position: absolute;
+    top: 14%;
+    display: grid;
+    width: 100%;
+   grid-template-columns: 0% 1fr;
+ }
+
+ .swiper-slide.color-8 p {
+ position: relative !important;
+    gap: 50%;
+    line-height: 114.2%;
+    border-radius: 532px;
+    z-index:7;
+    text-align: left;
+    margin: 0px !important;
+    align-items: center ;
+    height: fit-content !important;
+}
+
+#indicate {
+    padding-left: 120px;
+    font-size: 24px;
+}
+
+.swiper-slide.color-8 .nav {
+    top: 90%;
+}
+
+#answer {
+    margin: 2em 2em;
+   gap: 12px;
+    position: absolute;
+    display: grid;
+    top: 24% !important;
+max-width: 90%;
+width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100%;
+    max-height: 60%;
+}
+
+#answer button {
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+#answer button:focus {
+   color: #010101;
+}
+
+.disabled {
+    filter: opacity(0.3);
+}
+
+#logo {
+    position: relative !important;
 }
