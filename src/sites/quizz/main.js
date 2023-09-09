@@ -238,7 +238,7 @@ function generateAnswer() {
             answerContainer.innerHTML = '';
 
             // Create buttons for up to 4 matching answers
-            for (let i = 0; i < Math.min(20, matchingAnswers.length); i++) {
+            for (let i = 0; i < Math.min(15, matchingAnswers.length); i++) {
                 const button = document.createElement('button');
                 const answerText = matchingAnswers[i].replace(/\s+\d+[A-J]$/, '');
 

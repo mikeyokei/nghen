@@ -160,6 +160,7 @@ nav {
 
 }
 .swiper-slide {
+    align-items: center;
     color: black;
     position: relative;
     text-align: center;
@@ -174,15 +175,13 @@ nav {
 
 .swiper-pagination {
     z-index: 6;
-    top: 37%;
-    grid-template-columns: auto auto auto auto;
+    bottom: 68%;
     position: absolute;
-    height: 20px;
     width: 100%;
     display: flex;
     gap: 12px;
-    align-items: center;
     justify-content: center;
+    align-items: flex-end;
     }
     
     .swiper-pagination-bullet {
@@ -205,7 +204,6 @@ nav {
     }
 
     .swiper-slide p {
-        top: 18%;
         align-items: center;
         justify-content: center;
         display: flex;
@@ -230,25 +228,16 @@ nav {
     }
 
 
-    .swiper-slide.color-4 {
-        align-items: center;
-        justify-content: revert;
-        display: flex;
-        gap: 40px;
-        flex-direction: column;
-    }
 
     .nav {
         z-index: 6;
         position: absolute;
-        top: 60%;
+        top: 70%;
         height: 40px;
-        justify-content: center;
-        flex-direction: row;
+      
         width: 100%;
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 10em;
+      
+   
     }
 
     .nav a {
