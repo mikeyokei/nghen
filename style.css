@@ -157,11 +157,11 @@ nav {
 #cta:hover {
     color: black;
     z-index: 3;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 18.23%, rgba(229, 229, 218, 0.00) 26.56%, #B3B492 42.19%, rgba(218, 219, 202, 0.19) 56.25%, rgba(255, 255, 255, 0.00) 66.67%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.065) 18.23%, rgba(229, 229, 218, 0.00) 26.56%, #B3B492 42.19%, rgba(218, 219, 202, 0.19) 56.25%, rgba(255, 255, 255, 0.065) 66.67%);
 }
 #cta:active {
     color: white;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 18.23%, rgba(229, 229, 218, 0.00) 26.56%, #B3B492 42.19%, rgba(218, 219, 202, 0.19) 56.25%, rgba(255, 255, 255, 0.00) 66.67%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.065) 18.23%, rgba(229, 229, 218, 0.00) 26.56%, #B3B492 42.19%, rgba(218, 219, 202, 0.19) 56.25%, rgba(255, 255, 255, 0.065) 66.67%);
 }
 
 

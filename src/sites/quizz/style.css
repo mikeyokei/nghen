@@ -197,7 +197,7 @@ nav {
         z-index: 6;
         position: absolute;
         top: 78%;
-        height: 40px;
+      
         justify-content: center;
         flex-direction: row;
         width: 100%;
@@ -217,12 +217,14 @@ nav {
 .nav:hover {
     color: black;
     z-index: 6;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 18.23%, rgba(229, 229, 218, 0) 26.56%, #B3B492 60.19%, rgba(218, 219, 202, 0.235) 90.25%, rgba(255, 255, 255, 0) 40.67%);
+    background: linear-gradient(180deg, rgb(255 255 255 / 6%) 2.23%, rgb(182 186 133 / 0%) 2.56%,#a9ab88 50.19%, rgb(201 203 176 / 0%) 94.25%, rgb(255 255 255 / 7%) 2.67%);
 }
 .nav:active {
     color: white;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 18.23%, rgba(229, 229, 218, 0) 26.56%, #B3B492 60.19%, rgba(218, 219, 202, 0.235) 90.25%, rgba(255, 255, 255, 0) 40.67%);
+    background: linear-gradient(180deg, rgb(255 255 255 / 6%) 2.23%, rgb(182 186 133 / 0%) 2.56%,#a9ab88 50.19%, rgb(201 203 176 / 0%) 94.25%, rgb(255 255 255 / 7%) 2.67%);
 }
+
+
 .text {
     align-self: center;
     height: 30%;
@@ -234,7 +236,7 @@ nav {
 
 
 .text:hover {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #B3B492 66.67%, rgba(255, 255, 255, 0.00) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.065) 0%, #B3B492 66.67%, rgba(255, 255, 255, 0.065) 100%);
     cursor: pointer;
 }
 
@@ -513,7 +515,7 @@ align-items: center;
     position: absolute;
     z-index: 3;
     top: 24%;
-box-shadow: 0 0 180px #b0b276;
+box-shadow: 0 0 180px #848554;
 }
 
 .swiper-slide.color-4 span {
@@ -636,6 +638,7 @@ p.color2 {
  
 
 .swiper-slide.color-1 .nav {
+    height: 40px;
     position: unset !important;
     z-index: 6;
     /* height: 40px; */
@@ -935,12 +938,12 @@ button#J {
 }
 
 .swiper-slide.color-6 .button-group button:hover {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #a9ab88 51.56%, rgba(255, 255, 255, 0.00) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.065) 0%,#a9ab88 51.56%, rgba(255, 255, 255, 0.065) 100%);
     color: #010101;
 }
 
 .swiper-slide.color-6 .button-group button.selected {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #a9ab88 51.56%, rgba(255, 255, 255, 0.00) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.065) 0%,#a9ab88 51.56%, rgba(255, 255, 255, 0.065) 100%);
     color: #ffffff;
 }
 
@@ -965,7 +968,7 @@ width: 532px;
     top: unset !important;
     gap: 60%;
     height: 300px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #B3B492 51.56%, rgba(255, 255, 255, 0.00) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.065) 0%, #B3B492 51.56%, rgba(255, 255, 255, 0.065) 100%);
 }
 
 .swiper-slide.color-7 p {
