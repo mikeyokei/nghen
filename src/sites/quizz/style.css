@@ -994,10 +994,11 @@ background: radial-gradient(50% 50.00% at 50% 50.00%, #D9D9D9 0%, #9c9d7e 55.21%
  }
 
  .tiltle {
-    top: 14%;
     display: grid;
-    width: 100%;
-   grid-template-columns: 0% 1fr;
+    min-width: 92%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0% 1fr;
+    align-items: center;
  }
 
  .swiper-slide.color-8 p {
@@ -1013,20 +1014,21 @@ background: radial-gradient(50% 50.00% at 50% 50.00%, #D9D9D9 0%, #9c9d7e 55.21%
 }
 
 #indicate {
-    padding-left: 4em;
-    font-size: 24px;
+    justify-content: flex-start;
+    width: 10%;
+    font-size: 16px;
 }
 
 .swiper-slide.color-8 .nav {
     position: unset !important;
     top: 90%;
-    margin: 1em;
+    margin: 6px;
 }
 
 #answer {
-   
-    padding: 2em;
-    grid-gap: 1em;
+    min-width: 90%;
+    padding: 0em 2em;
+    grid-gap: 0.5em;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -1034,16 +1036,31 @@ background: radial-gradient(50% 50.00% at 50% 50.00%, #D9D9D9 0%, #9c9d7e 55.21%
 }
 
 #answer button {
+    padding: 2px !important;
+    line-height: 112%;
+    font-size: 18px !important;
+    grid-gap: 0.25em;
+    grid-template-rows: auto auto;
+    display: grid;
+    width: 100%;
     border: 1px solid black;
     border-radius: 25px;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
 }
 
 #answer button:focus {
-   color: #010101;
+    filter: opacity(0.6);
+   color: #ffffff;
+   background: radial-gradient(50% 50% at 50% 50%, #B3B492 0%, rgba(217, 217, 217, 0.00) 100%);
 }
 
 .disabled {
-    filter: opacity(0.3);
+    filter: opacity(0.5);
+    color: #ffffff;
+    background: radial-gradient(50% 50% at 50% 50%, #b2b481 0%, rgba(217, 217, 217, 0.00) 100%);
 }
 
 #logo {
@@ -1056,7 +1073,7 @@ background: radial-gradient(50% 50.00% at 50% 50.00%, #D9D9D9 0%, #9c9d7e 55.21%
     align-self: flex-end;
     height: 92%;
     /* margin: 1em; */
-    gap: 18px;
+    gap: 10px;
     grid-template-columns: 1fr;
     width: 100%;
     flex-direction: column;
@@ -1096,3 +1113,7 @@ background: radial-gradient(50% 50.00% at 50% 50.00%, #D9D9D9 0%, #9c9d7e 55.21%
           justify-content: center;
           align-items: center;
           justify-items: center;  }
+
+    #bold-word {
+        font-family: 's4', sans-serif;
+    }

@@ -150,30 +150,32 @@ parentsAndVarname.forEach((element) => {
 ////////
 
 const topics = {
-    "A": ["Answer 1A", "Apple 2A", "linen 2A", "Pear 3A", "Lion 4A",  "Lionhai 4A",  "Lionpa 4A"],
-    "B": ["Answer 1B", "Banana 2B", "Orange 3B", "Tiger 1B",  "Haii 1B", "Niche heheheheh 1B"],
-    "C": ["Answer 1C", "Cherry 2C", "Grapes 3C", "Elephant 1C"],
-    "D": ["Answer 1D", "Dog 2D", "Cat 3D", "Fish 1D"],
-    "F": ["Fnswer 1F", "Fpple 2F", "linen 2F", "Pefr 3F", "Lion 4F", "Lionhfi 4F", "Lionpf 4F"],
-    "G": ["Gnswer 1G", "Gpple 2G", "linen 3G", "Pegr 4G", "Lion 3G", "Lionhgi 3G", "Lionpg 3G"],
-    "E": ["Enswer 3E", "Epple 3E", "linen 3E", "Peer 3E", "Lion 3E", "Lionhei 3E", "Lionpe 3E"],
-    "H": ["Hnswhr 3H", "Hpplh 3H", "linhn 3H", "Phhr 3H", "Lion 3H", "Lionhhi 3H", "Lionph 3H"],
-    "J": ["Jnswjr 3J", "Jpplj 3J", "linjn 3J", "Pjjr 3J", "Lion 3J", "Lionjji 3J", "Lionpj 3J"],
+    "A": ["write down one thing you appreciate about each other and share it 1A", "If there’s one thing you could change about social norms what would it be? 2A", "if you could share something important about yourself without fear of judgement what would it be 2A","write down one thing you appreciate about each other and share it 3A", "if you could share something important about yourself without fear of judgement what would it be 3A", "how would you feel if a close friend came out to you as LGBTQ+? 4A",  "what is a personal victory you’ve had recently that you’re proud of? 4A",  "Lionpa 4A"],
+    "B": ["write down one thing you appreciate about each other and share it 1B", "what’s a moment in your life when you felt completely accepted? 2B", "what’s a moment in your life when you felt completely accepted? 3B", "Tiger 1B", "write down one thing you appreciate about each other and share it 3B",  "if you could share something important about yourself without fear of judgement what would it be 1B", "Niche What's a common misconception people have about you that you'd like to correct? 1B"],
+    "C": ["write down one thing you appreciate about each other and share it 1C", "how would you feel if a close friend came out to you as LGBTQ+? 2C", "is there a part of your life you feel is like an “unopened book” that we haven’t explored much as a family 3C", "What's a common misconception people have about you that you'd like to correct? 1C"],
+    "D": ["write down one thing you appreciate about each other and share it 1D", "how would you feel if a close friend came out to you as LGBTQ+? 2D", "What's a common misconception people have about you that you'd like to correct? 3D", "Fish 1D"],
+    "F": ["write down one thing you appreciate about each other and share it 1F", "how would you feel if a close friend came out to you as LGBTQ+? 2F", "linen 2F", "What's a common misconception people have about you that you'd like to correct? 3F", "Lion 4F", "If there’s one thing you could change about social norms what would it be? 4F", "if you could share something important about yourself without fear of judgement what would it be 4F"],
+    "G": ["write down one thing you appreciate about each other and share it 1G", "how would you feel if a close friend came out to you as LGBTQ+? 2G", "linen 3G", "what is a personal victory you’ve had recently that you’re proud of? 4G", "What's a common misconception people have about you that you'd like to correct? 3G", "If there’s one thing you could change about social norms what would it be? 3G", "Lionpg 3G"],
+    "E": ["write down one thing you appreciate about each other and share it 3E", "if you could share something important about yourself without fear of judgement what would it be 3E", "What is an important lesson you've learned recently? 3E", "What is an important lesson you've learned recently? 3E", "Lion 3E", "Lionhei 3E", "Lionpe 3E"],
+    "H": ["If there’s one thing you could change about social norms what would it be? 3H", "What's a common misconception people have about you that you'd like to correct? 3H", "what is a personal victory you’ve had recently that you’re proud of? 3H", "Phhr 3H", "If there’s one thing you could change about social norms what would it be? 3H", "if you could share something important about yourself without fear of judgement what would it be 3H", "What is an important lesson you've learned recently? 3H"],
+    "J": ["What's a common misconception people have about you that you'd like to correct? 3J", "If there’s one thing you could change about social norms what would it be? 3J", "if you could share something important about yourself without fear of judgement what would it be 3J", "is there a part of your life you feel is like an “unopened book” that we haven’t explored much as a family 3J", "Lion 3J", "What is an important lesson you've learned recently? 3J", "what is a personal victory you’ve had recently that you’re proud of? 3J"],
 };
 
 const states = {
-    "1": ["Answer 1A", "Answerser 1B", "Kiitos 1C", "Answer 1D", "Fish 1D", "Haii 1B", "Niche heheheheh 1B"],
-    "2": ["Apple 2A", "linen 2A", "Banana 2B", "Cherry 2C", "Dog 2D", "Tiger 1B"],
-    "3": ["Pear heheheheh 3A", "Orange heheheheh 3A", "Catto heheheheh 3A", "Niche heheheheh 3A", 
-    "numero haihai 3A", "Anteeksi moimoi 3A", "Hei hei 3A", "Moi hei 3A", "Tantan hei 3A",
-    "Orange 3B", "Pear 3A", "Orange 3B", "Grapes 3C", "Cat 3D", "Niche heheheheh 3B", "Haii 3B", 
-    "Fnswer 3F", "Fpple 3F", "linen 3F", "Pefr 3F", "Lion 3F", "Lionhfi 3F", "Lionpf 3F",
-    "Gnswer 3G", "Gpple 3G", "linen 3G", "Pegr 3G", "Lion 3G", "Lionhgi 3G", "Lionpg 3G",
-    "Enswer 3E", "Epple 3E", "linen 3E", "Peer 3E", "Lion 3E", "Lionhei 3E",
-    "Hnswhr 3H", "Hpplh 3H", "linhn 3H", "Phhr 3H",
-    "Jnswjr 3J", "Jpplj 3J", "linjn 3J", "Pjjr 3J", "Lion 3J",
+    "1": ["write down one thing you appreciate about each other and share it 1A", "what’s a moment in your life when you felt completely accepted? 1B", "Kiitos 1C", "write down one thing you appreciate about each other and share it 1D", "What is an important lesson you've learned recently? 1D", "What's a common misconception people have about you that you'd like to correct? 1B", "parent How do you perceive the concept of gender? Has your understanding changed over the years? 1B"],
+    "2": ["how would you feel if a close friend came out to you as LGBTQ+? 2A", "what is a personal victory you’ve had recently that you’re proud of? 2A", "what’s a moment in your life when you felt completely accepted? 2B", "is there a part of your life you feel is like an “unopened book” that we haven’t explored much as a family 2C", "Dog 2D", "Tiger 1B"],
+    "3": ["parent what comes to mind when you hear the term diversity? how do you feel about it 3A", "child is there a public figure or a character from a book/movie who you feel you can resonate to? 3A", "child write a note to your parents about a time when you feel courageous 3A", "Niche heheheheh 3A", 
+    "child Tell your parents about a time when their support made a difference 3A", "parent What's a piece of advice you've received that has stuck with you? Why did it make a lasting impact? 3A", "child is there a public figure or a character from a book/movie who you feel you can resonate to? 3A", "child write a note to your parents about a time when you feel courageous 3A", "Tantan hei 3A",
+    "parent what comes to mind when you hear the term diversity? how do you feel about it 3B", "Pear 3A", "parent what comes to mind when you hear the term diversity? how do you feel about it 3B", "Grapes 3C", "Cat 3D", "child is there a public figure or a character from a book/movie who you feel you can resonate to? 3B", "child write a note to your parents about a time when you feel courageous 3B", 
+    "Fnswer 3F", "Fpple 3F", "parent what comes to mind when you hear the term diversity? how do you feel about it 3F", "Pefr 3F", "Lion 3F", "Lionhfi 3F", "Lionpf 3F",
+    "Gnswer 3G", "child is there a public figure or a character from a book/movie who you feel you can resonate to? 3G", "linen 3G", "parent what comes to mind when you hear the term diversity? how do you feel about it 3G", "child write a note to your parents about a time when you feel courageous 3G", "Lionhgi 3G", "Lionpg 3G",
+    "child is there a public figure or a character from a book/movie who you feel you can resonate to? 3E", "Epple 3E", "linen 3E", "Peer 3E", "child write a note to your parents about a time when you feel courageous 3E", "Lionhei 3E",
+    "Hnswhr 3H", "Hpplh 3H", "child is there a public figure or a character from a book/movie who you feel you can resonate to? 3H", "Phhr 3H",
+    "Jnswjr 3J", "child is there a public figure or a character from a book/movie who you feel you can resonate to? 3J", "child write a note to your parents about a time when you feel courageous 3J", "Pjjr 3J", "parent what comes to mind when you hear the term diversity? how do you feel about it 3J",
     ],
-    "4": ["Lion 4A"],
+    "4": ["how would you feel if a close friend came out to you as LGBTQ+? 4C",
+    "write down one thing you appreciate about each other and share it 4A",
+    "how would you feel if a close friend came out to you as LGBTQ+? 4B"],
 };
 
 
@@ -324,8 +326,11 @@ function generateNextAnswer() {
 
                     // Create a new array to store the formatted words
                     const formattedWords = words.map((word, index) => {
-                        // Make the first word (index 0) bold for the first answer from const states "3"
-                        return (index === 0 && isFromStates3) ? `<strong>${word}</strong>` : word;
+                        if (index === 0 && isFromStates3) {
+                            // Wrap the word in a <div> with id for styling
+                            return `<div id="bold-word">${word}</div>`;
+                        }
+                        return word;
                     });
 
                     // Join the formatted words back into a single string
