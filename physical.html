@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" 
+    content="#ecfff9" 
+    media="(prefers-color-scheme: light)">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link href="physical.css" type="text/css" rel="stylesheet" crossorigin="anonymous">
+    
+    <title>Story</title>
+</head>
+<body>
+ <header>
+    <nav>
+        <div class="logo">
+            <a href="https://mikeyokei.github.io/nghen/"><img id="logo" src="./src/Logo/logo.svg" alt="logo"></a>
+        </div>
+        <div class="navigator">
+            <a href="">about</a>
+            <a href="">blog</a>
+        </div>
+    </nav>
+ </header>
+
+ <div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide color-1"> 
+            <div id="layout1">
+            <div id="design">
+            <div id="bdes">
+                <button class="bdesdef" id="q"></button>
+                <button class="bdesdef" id="w"></button>
+                <button class="bdesdef" id="e"></button>
+                <button class="bdesdef" id="r"></button>
+                <button class="bdesdef" id="t"></button>
+                <button class="bdesdef" id="y"></button>
+                <button class="bdesdef" id="u"></button> 
+            </div>
+            <div id="box">
+                <div id="def" class="boxdes">
+                    <img id="inbox" src="./src/Logo/logo.svg" alt="logo">
+                </div>
+                <div id="cus" class="boxdes">
+                    <canvas id="canvasimg"></canvas>
+                    <div id="picker-container">
+                    <input id="picker" type="file" accept="image/*" onchange="handleImageUpload(event)"></div>
+                    <div id="fileName"></div>
+
+                </div>
+            </div>
+        </div>
+            <div class="selectdes">
+                <button id="selectdef">default design</button>
+                <button id="selectcus">custom design</button>
+            </div>
+        </div>
+            <div class="nav">
+                <button class="back"> <a href="/nghen/story.html">back</a></button>
+                <button id="divD" ><a>submit</a></button>
+            </div>
+        </div>
+        <div class="swiper-slide color-2">
+            <div id="layout2">
+                <div id="cus" class="boxdes">
+                    <canvas id="canvasimg2" class="ascii-canvas"></canvas>
+                    <canvas class="none" id="canvasimg3"></canvas>
+                    <div id="asciiArt" style="display: none;"></div>
+                    <div id="img2bg"></div>
+                 </div>
+                        <div id="ui1">
+                           <div class="ui" id="uia">
+                            <h3>main topic</h3>
+                            <div class="uitopic">
+                                <button class="topic" id="ll">love life</button>
+                                <button class="topic" id="llg">love language</button>
+                                <button class="topic" id="mh">mental health</button>
+                                <button class="topic" id="si">sexuality identity</button>
+                                <button class="topic" id="wl">work-life</button>
+                                <button class="topic" id="ic">internal conflict</button>
+                                <button class="topic" id="co">career orientation</button>
+                                <button class="topic" id="ss">social situation</button>
+                                <button class="topic" id="exp">expectation</button>
+                            </div>
+                           </div>
+                           <div class="ui" id="uib">
+                            <h3>tone of conversation</h3>
+                            <select id="tone">
+                                <option value="option1">joyful</option>
+                                <option value="option2">heart-to-heart</option>
+                                <option value="option3" selected>fusion</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div id="ui2">
+                            <div class="ui" id="uic">
+                                <h3>closeness</h3>
+                                <div class="overlap"></div>
+                            </div>
+                            <div class="ui" id="uid">
+                                <h3>communication method</h3>
+                                <select id="method">
+                                    <option value="option4">texting</option>
+                                    <option value="option5">talking</option>
+                                    <option value="option6" selected>both</option>
+                                  </select>
+                            </div>
+                            <div class="ui" id="uie">
+                                <div class="paper">
+                                    <h3>comfortable topic</h3>
+                                    <div class="paper-content">
+                                        <textarea></textarea>
+                                </div>
+                            </div>
+                             <button id="dot">confirm</button>
+                            </div>
+                        </div>    
+                    </div>    
+        <div class="nav">
+            <button class="back"> <a href="/nghen/story.html">back</a></button>
+            <button id="divD" ><a>submit</a></button>
+        </div>
+    </div>
+
+        <div class="swiper-slide color-3">
+            <p>how do your family often communicate?</p>
+            <div class="opt3">
+                <button class="cont"><a>talking casually among members</a></button>
+                <button class="cont"><a>texting</a></button>
+                <button class="cont"><a>others</a></button>
+            </div>
+            <div class="nav">
+                <button class="back"><a>back</a></button>
+                <button class="cont"><a>continue</a></button>
+            </div>
+        </div>
+        <div class="swiper-slide color-4">
+            <div class="paper">
+                <span>we often talk about:</span>
+                <div class="paper-content">
+                    <textarea></textarea>
+            </div>
+        </div>
+            <div class="nav">
+                <button class="back"><a>back</a></button>
+                <button class="cont"><a>continue</a></button>
+            </div>
+        </div>
+        <div class="swiper-slide color-5">
+            <p>what about you do you wish to share with your parents</p>
+            <div id="bg">
+                <img class="bg" src="./src/Img/1.svg" alt="img">
+                 </div>
+                 <div class="buttons">
+                    <div class="button-group">
+                        <button id="A" draggable="true">work-life</button>
+                        <button id="B" draggable="true">internal conflict</button>
+                        <button id="C" draggable="true">career orientation</button>
+                        <button id="D" draggable="true">love language</button>
+                    </div>
+                    <div class="button-group">
+                        <button id="E" draggable="true">mental health</button>
+                        <button id="F" draggable="true">social situation/opinion</button>
+                        <button id="G" draggable="true">sexuality</button>
+                        <button id="H" draggable="true">love life</button>
+                        <button id="J" draggable="true">expectations</button>
+                    </div>
+                 </div>
+            <div class="nav">
+                <button class="back"><a>back</a></button>
+                <button class="cont"><a>continue</a></button>
+            </div>
+        </div>
+    </div>
+  
+</div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/js/swiper.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script src="https://cdn.rawgit.com/AymanJitan/polygonize/master/dist/polygonize.js"></script>
+ <script src="https://cdn.rawgit.com/ironwallaby/delaunay/master/delaunay.js"></script>
+
+ <script src="./src/sites/physical/droppick.js"></script>
+ <script src="./src/sites/physical/grab.js"></script>
+ <script src="./src/sites/physical/fisheye.js"></script>
+<script src="./src/sites/physical/main.js"  type="text/javascript" defer></script>
+</body>
+</html>

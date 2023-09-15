@@ -1,3 +1,9 @@
+@import "./variables";
+@import "./mixins";
+
+
+
+
 @font-face {
     font-family: 's1';
     src: url("../story/Font/SVN-DeFontePlus/SVN-DeFontePlus-DemiGras.otf") format('opentype');
@@ -23,9 +29,7 @@
     src:  url("../story/Font/Millionaire-Script.ttf") format('truetype');
 }
 
-$base-color: #B3B492;
-$black-color: #010101;
-$white-color: #fefefe;
+
 
 h1 {
     font-family: 's3', sans-serif;
@@ -341,7 +345,7 @@ nav {
     font-family: 's3', sans-serif;
     font-size: 32px; 
     padding: 0.5em;
-    width: 100%;
+    width: 90%;
 }
 
 .swiper-slide.color-4 .nav {
