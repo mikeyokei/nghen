@@ -690,13 +690,13 @@ div#box {
     /* object-fit: cover; */
     position: absolute;
     top: 0;
-    left: 50%;
-    width: 50%;
+    left: 0;
+    width: 30%;
   }
 
 
   #img2bg{
-    mix-blend-mode: hue;
+    mix-blend-mode: color-burn;
     z-index: 2;
     position: relative;
     width: 100%;
@@ -984,10 +984,9 @@ option {
     background: linear-gradient(180deg, rgb(255 255 255 / 6%) 2.23%, rgb(182 186 133 / 0%) 2.56%,#a9ab88 50.19%, rgb(201 203 176 / 0%) 94.25%, rgb(255 255 255 / 7%) 2.67%);
 }
 
-.topic:focus {
-    color: rgb(255, 255, 255);
-    background: linear-gradient(180deg, rgb(255 255 255 / 6%) 2.23%, rgb(182 186 133 / 0%) 2.56%,#a9ab88 50.19%, rgb(201 203 176 / 0%) 94.25%, rgb(255 255 255 / 7%) 2.67%);
-}
+
+
+
 
 .split {
     left: 300px;
@@ -1003,7 +1002,7 @@ option {
 
   .motion {
 
-    /* display: none; */
+display: block !important;
     z-index: 0;
     object-fit: cover;
     /* right: 50%; */
@@ -1016,12 +1015,126 @@ option {
     /* left: 50%; */
     width: 100% !important;
     max-width: 100% !important;
-    left: 0%;
+    left: 0% !important;
+    transform: scaleX(1.1);
+    filter: blur(1px) opacity(0.5);
   }
 
-  .topic.active {
+ 
+  .active {
     color: rgb(255, 255, 255);
     background: linear-gradient(180deg, rgb(255 255 255 / 6%) 2.23%, rgb(182 186 133 / 0%) 2.56%,#a9ab88 50.19%, rgb(201 203 176 / 0%) 94.25%, rgb(255 255 255 / 7%) 2.67%);
+  }
+
+
+  #canvasimg4 {
+    display: none; 
+    /* z-index: 0; */
+    object-fit: cover;
+    /* right: 50%; */
+    /* align-self: flex-end; */
+  height: 100%;
+    /* object-fit: cover; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  #canvasimg5 {
+    display: none;
+    background-blend-mode: multiply;
+    transform: scale(1.1);
+    filter: hue-rotate(80deg) saturate(7) opacity(0.4);
+    /* display: none; */
+    /* z-index: 0; */
+    object-fit: cover;
+    /* right: 50%; */
+    /* align-self: flex-end; */
+    height: 100%;
+    /* object-fit: cover; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
- 
+
+  #canvasimg6 {
+    display: none;
+    background-blend-mode: multiply;
+    transform: scale(1.2);
+    filter: hue-rotate(280deg) saturate(7) opacity(0.5);
+    /* z-index: 0; */
+    object-fit: cover;
+    /* right: 50%; */
+    /* align-self: flex-end; */
+  height: 100%;
+    /* object-fit: cover; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+  }
+
+
+  .posterize-filter {
+    filter: url('#posterize');
+}
+.noise {
+    filter: url('#noise');
+}
+
+/* Define a CSS class with the styles you want to apply */
+.canvas-effects {
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(255, 0, 255, 0.719);
+    background-blend-mode: screen;
+    transition: .4s;
+  }
   
+  .canvas-effects:before, .canvas-effects:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    mix-blend-mode: multiply;
+    transform: scale(1.08);
+  }
+  
+  .canvas-effects:before {
+    background-color: rgba(255, 255, 0, 0.726);
+    background-blend-mode: screen;
+    transform-origin: top left;
+    transition: .1s;
+  }
+  
+  .canvas-effects:after {
+    background-color: rgba(0, 255, 255, 0.459);
+    background-blend-mode: screen;
+    transform-origin: bottom right;
+    transition: .6s;
+  }
+
+.vas4rgb {
+    background-blend-mode: multiply;
+    transform: scale(1.1);
+    filter: hue-rotate(280deg) saturate(7) opacity(12); }
+
+
+    .glitch {
+        animation: glitch 0.2s linear infinite alternate;
+      }
+      
+      @keyframes glitch {
+        0% {
+          transform: translate(0);
+        }
+        100% {
+          transform: translate(2px, -2px);
+        }
+      }

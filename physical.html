@@ -12,6 +12,20 @@
     <title>Story</title>
 </head>
 <body>
+
+    <svg width="0" height="0">
+        <filter id="posterize">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncR type="discrete" tableValues="0.2 0.6 0.6 0.8" />
+                <feFuncG type="discrete" tableValues="0.2 0.6 0.6 0.8" />
+                <feFuncB type="discrete" tableValues="0.2 0.6 0.6 0.8" />
+            </feComponentTransfer>
+        </filter>
+        <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence baseFrequency="0.01 0.4" result="NOISE" numOctaves="2" />
+            <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="20" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
+        </filter>
+    </svg>
  <header>
     <nav>
         <div class="logo">
@@ -66,7 +80,9 @@
                 <div id="cus" class="boxdes">
                     <canvas id="canvasimg2" class="ascii-canvas"></canvas>
                     <canvas class="none" id="canvasimg3"></canvas>
-                    <div id="asciiArt" style="display: none;"></div>
+                    <canvas id="canvasimg4"></canvas>
+                    <canvas id="canvasimg5"></canvas>
+                    <canvas id="canvasimg6"></canvas>
                     <div id="img2bg"></div>
                  </div>
                         <div id="ui1">
@@ -178,11 +194,9 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/js/swiper.min.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
  <script src="https://cdn.rawgit.com/AymanJitan/polygonize/master/dist/polygonize.js"></script>
- <script src="https://cdn.rawgit.com/ironwallaby/delaunay/master/delaunay.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/ironwallaby/delaunay@master/delaunay.js"></script>
+ <script src="https://unpkg.com/d3-delaunay@3.1.7/dist/d3-delaunay.min.js"></script>
 
- <script src="./src/sites/physical/droppick.js"></script>
- <script src="./src/sites/physical/grab.js"></script>
- <script src="./src/sites/physical/fisheye.js"></script>
 <script src="./src/sites/physical/main.js"  type="text/javascript" defer></script>
 </body>
 </html>

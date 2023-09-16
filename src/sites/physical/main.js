@@ -250,11 +250,12 @@ buttonq.addEventListener('click', function() {
     const fileNameElement = document.getElementById('fileName');
     const canvas2 = document.getElementById('canvasimg2');
     const canvas3 = document.getElementById('canvasimg3');
-    let src = ''; // Initialize src here
-let polyEffectApplied = false; 
-
+    const canvas4 = document.getElementById('canvasimg4');
+    const canvas5 = document.getElementById('canvasimg5');
+    const canvas6 = document.getElementById('canvasimg6');
     let img2;
-
+    let img4 = new Image(); 
+  
     // Function to handle file selection and draw the image on the canvas
     function handleImageUpload(event) {
       const file = event.target.files[0];
@@ -264,7 +265,6 @@ let polyEffectApplied = false;
           const img = new Image();
           img.src = e.target.result;
           img.onload = function () {
-            
             // Resize the canvas to match the image dimensions
             canvas1.width = img.width;
             canvas1.height = img.height;
@@ -272,23 +272,32 @@ let polyEffectApplied = false;
             canvas2.height = img.height;
             canvas3.width = img.width;
             canvas3.height = img.height;
+            canvas4.width = img.width;
+            canvas4.height = img.height;
+            canvas5.width = img.width;
+            canvas5.height = img.height;
+            canvas6.width = img.width;
+            canvas6.height = img.height;
             const ctx1 = canvas1.getContext('2d');
-            ctx1.willReadFrequently = true; 
             // Draw the image on the canvas
             ctx1.drawImage(img, 0, 0, canvas1.width, canvas1.height);
             const ctx2 = canvas2.getContext('2d');
             ctx2.drawImage(img, 0, 0, canvas2.width, canvas2.height);
-            ctx2.willReadFrequently = true; 
             const ctx3 = canvas3.getContext('2d');
             ctx3.drawImage(img, 0, 0, canvas3.width, canvas3.height);
-            ctx3.willReadFrequently = true; 
-            
             // Display the file name
+            const ctx4 = canvas4.getContext('2d');
+            ctx4.drawImage(img, 0, 0, canvas4.width, canvas4.height);
+            const ctx5 = canvas5.getContext('2d');
+            ctx5.drawImage(img, 0, 0, canvas5.width, canvas5.height);
+            const ctx6 = canvas5.getContext('2d');
+            ctx6.drawImage(img, 0, 0, canvas6.width, canvas6.height);
             fileNameElement.textContent = file.name;
             //////
+            const dataUrl = canvas4.toDataURL;
+            img4.src = dataUrl;
             img2 = img;
-            src = e.target.result;
-            polyEffectApplied = false;
+            img4 = img;
           };
         };
         reader.readAsDataURL(file);
@@ -300,8 +309,14 @@ let polyEffectApplied = false;
         canvas2.height = 0;
         canvas3.width = 0;
         canvas3.height = 0;
+        canvas4.width = 0;
+        canvas4.height = 0;
+        canvas5.width = 0;
+        canvas5.height = 0;
+        canvas6.width = 0;
+        canvas6.height = 0;
         fileNameElement.textContent = '';
-        polyEffectApplied = false;
+
       }
     }
 
@@ -316,7 +331,7 @@ function applyAsciiEffectToCanvas2(image) {
     ctx.canvas.width = img2.width;
     ctx.canvas.height = img2.height;
     // Calculate the font size based on canvas height and number of rows
-    const numberOfRows = 80; // Adjust the number of rows as needed
+    const numberOfRows = 30; // Adjust the number of rows as needed
     const fontHeight = 24;
     
     // Set font for drawing the ASCII art
@@ -370,7 +385,6 @@ function applyAsciiEffectToCanvas2(image) {
   
   // Add event listener to the file input to handle file selection
   fileInput.addEventListener('change', handleImageUpload);
-  
   // Event listener for Button A
   const applyAsciiButton = document.getElementById('llg');
   
@@ -397,7 +411,48 @@ function removeAsciiEffect() {
 
   }
 
+;
+
+
+ // Function to clear the ASCII art from canvas2
+function undoascii() {
+    const ctx = canvas2.getContext('2d');
+    ctx.clearRect(0, 0, canvas2.width, canvas2.height);
+  }
+
+
   //////
+
+// Function to apply a basic low-poly effect to an image
+const ctx4 = canvas4.getContext('2d');
+
+
+function poly() {
+
+  
+    const cellSize = 50;
+    
+    Polygonize({
+      src: img4.src,
+      cellSize: cellSize,
+      onSuccess: function (canvas) {
+        // Set the canvas dimensions to match the generated canvas
+        canvas4.width = canvas.width;
+        canvas4.height = canvas.height;
+  
+        // Clear the canvas4
+        ctx4.clearRect(0, 0, canvas4.width, canvas4.height);
+  
+        // Draw the generated canvas onto canvas4
+        ctx4.drawImage(canvas, 0, 0);
+      }
+    });
+  }
+  
+ 
+
+/////
+  
 
   fileInput.addEventListener('click', function() {
     imgbut.style.filter = "";
@@ -456,150 +511,337 @@ navigateToPage1();
 navigateToPage2();
 });
 
-/////
+//////
+const topics = document.querySelectorAll('.topic');
 
-const buttons = document.querySelectorAll('.topic');
+topics.forEach(button => {
+  button.addEventListener('click', () => {
+    button.classList.toggle('active'); // Toggle the 'active' class on button click
+  });
+});
+
+const mh = document.getElementById('mh');
+const wl = document.getElementById('wl');
+const ll = document.getElementById('ll');
+const co = document.getElementById('co');
+const topic = document.getElementsByClassName('topic');
+
+const none1 = document.getElementsByClassName('none');
 const imgbox = document.getElementById('canvasimg2');
 const imgbox1 = document.getElementById('canvasimg3');
+const polybox = document.getElementById('canvasimg4');
+const rgb1 = document.getElementById('canvasimg5');
+const rgb2 = document.getElementById('canvasimg6');
 const img2bg = document.getElementById('img2bg');
-const activeEffects = {}; // Store active effects by button ID
+// Add a click event listener to the button
+// Use variables to track the state of each effect
 
-// Function to apply the click effect for a button
-function applyClickEffect(buttonId) {
-    const button = document.getElementById(buttonId);
-    if (!activeEffects[buttonId]) {
-        // If the button is not already active, apply its effect
-        switch (buttonId) {
-            case 'll':
-                imgbox.style.filter += "invert(0) blur(1px) brightness(5) ";
-                break;
-            case 'mh':
-                imgbox.style.filter += "invert(1) ";
-                break;
-            case 'wl':
-                img2bg.style.background = "linear-gradient(90deg, rgb(0 0 0) 47.44%, rgba(217, 217, 217, 0) 60.94%)";
-                break;
-            case 'co':
-                motionblur();
-                break;
-            case 'exp':
-                imgbox1.style.display = "block";
-                imgbox1.classList.toggle('split');
-                
-                imgbox1.style.filter = "blur(0px) opacity(1)"
-               
-                imgbox1.style.transform = "scaleY(-100)";
-                imgbox1.classList.remove('motion');
-                break;
-            // Add more cases for other buttons
-        }
-        activeEffects[buttonId] = true;
-        button.classList.add('active');
-    } else {
-        // If the button is already active, remove its effect
-        removeEffect(buttonId);
-        activeEffects[buttonId] = false;
-        button.classList.remove('active');
-    }
-}
+let mhActive = false;
+let wlActive = false;
+let llActive = false;
+let coActive = false;
+let icActive = false;
+let siActive = false;
 
 // Function to hide imgbox1
 function hideImgBox1() {
-    imgbox1.style.display = "none";
-    imgbox1.classList.remove('split');
-    imgbox1.classList.remove('motion');
+imgbox1.style.display = "none";
+imgbox1.classList.remove('split');
+imgbox1.classList.remove('motion');
 }
 
 function undofilterimgbox() {
-    imgbox.style.filter = "";
+imgbox.style.filter = "";
+
 }
 
 function undobgimg2() {
-    img2bg.style.background = "";
+img2bg.style.background = "";
 }
 
-// Function to apply motion blur effect
+// Function to hide imgbox1
+function removemotion() {
+imgbox1.classList.toggle('split');
+img2bg.style.background = "";
+imgbox1.style.filter = "";
+imgbox.style.filter = "";
+}
+
+// Function to hide imgbox1
+function removeexp() {
+    imgbox1.style.display = "none";
+    imgbox1.classList.remove('split');
+    img2bg.style.background = "";
+    imgbox1.style.filter = "";
+    imgbox.style.filter = "";
+    imgbox1.style.transform = "";
+    }
+    
+
+
+////
+mh.addEventListener('click', function() {
+    if (!mhActive) {
+      imgbox.style.filter = "invert(1)";
+    } else {
+      undofilterimgbox();
+
+    }
+    mhActive = !mhActive;
+    hideImgBox1();
+  });
+
+wl.addEventListener('click', function() {
+    if (!wlActive) {
+      img2bg.style.background = "linear-gradient(90deg, #595959b0 47.44%, #ffffff00 60.94%)";
+    } else {
+      undobgimg2();
+    }
+    wlActive = !wlActive;
+    hideImgBox1();
+  });
+
+ll.addEventListener('click', function() {
+    if (!llActive) {
+      imgbox.style.filter = "invert(0) grayscale(0.1)  contrast(100%) blur(1px) brightness(8)";
+    } else {
+      undofilterimgbox();
+    }
+    llActive = !llActive;
+    hideImgBox1();
+  });
+
+  const exp = document.getElementById('exp');
+
+  let expActive = false; // Variable to track the state of the 'exp' effect
+  
+  exp.addEventListener('click', () => {
+    if (!expActive) {
+      // Apply the 'exp' effect when it's not active
+      imgbox1.style.display = "block";
+      imgbox1.classList.toggle('split');
+      img2bg.style.background = "";
+      imgbox1.style.filter = "blur(0px) opacity(1)";
+      imgbox.style.filter = '';
+      imgbox1.style.transform = "scaleY(-100)";
+      imgbox1.classList.remove('motion');
+    } else {
+        
+      // Remove the 'exp' effect when it's active
+      imgbox1.style.display = "none";
+      imgbox1.classList.remove('split');
+      img2bg.style.background = "";
+      imgbox1.style.filter = "";
+      imgbox.style.filter = "";
+      imgbox1.style.transform = "";
+    }
+    
+    expActive = !expActive; // Toggle the state of the 'exp' effect
+  });
+
+/////
 function motionblur() {
- 
+    imgbox1.classList.remove('split');
     imgbox1.classList.toggle('motion');
+    undobgimg2();
+    undofilterimgbox();
+    none1.style.display = "block";
     imgbox1.style.display = "block";
     imgbox1.style.filter = "blur(1px) opacity(0.5)";
     imgbox1.style.transform = "scaleX(1.1)";
     imgbox1.style.left = "0%";
-}
-
-// Function to remove the effect for a button
-function removeEffect(buttonId) {
-    switch (buttonId) {
-        case 'll':
-        case 'llg':
-        case 'mh':
-        case 'wl':  undobgimg2();
-        case 'co':
-        case 'exp':
-            // Reset or remove the specific effect
-         
-            hideImgBox1();
-          
-            undofilterimgbox();
-         
-            break;
-        // Add more cases for other buttons
-        
     }
-    const button = document.getElementById(buttonId);
-    button.classList.remove('active'); 
-}
 
-// Function to remove motion blur effect
-function removemotion() {
-    imgbox1.classList.toggle('split');
+    function removemotionblur() {
+        imgbox1.classList.toggle('split');
+        imgbox1.classList.remove('motion');
+        undobgimg2();
+        undofilterimgbox();
+        }
+    
 
-    imgbox1.style.filter = "";
-    imgbox.style.filter = "";
-}
 
-// Add click event listeners to all buttons
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        const buttonId = button.id;
-        applyClickEffect(buttonId);
-    });
+  co.addEventListener('click', function() {
+    if (!coActive) {
+        imgbox1.style.filter = "blur(1px) opacity(0.5)";
+        imgbox.style.filter = '';
+        imgbox1.style.transform = "scaleX(1.1) scaleY(1)";
+        
+      motionblur();
+    } else {
+        
+      removemotionblur() ;
+      // Reset any other styles you want to remove here
+    }
+    coActive = !coActive;
+    hideImgBox1();
+  });
+
+
+   // Event listener for the "ic" button
+   const ic = document.getElementById('ic');
+  
+   ic.addEventListener('click', poly); // Apply the poly function on button click
+   
+   ic.addEventListener('click', function() {
+    if (!icActive) {
+        polybox.style.display = "block";
+    } else {
+        polybox.style.display = "none";
+    }
+    icActive = !icActive;
+  });
+
+  const ss = document.getElementById('ss');
+
+// Add a click event listener to the button
+ss.addEventListener('click', () => {
+    // Toggle the 'posterize-filter' class on canvas3
+    imgbox.classList.toggle('posterize-filter');
 });
 
 
-// Event listener for Button JK to toggle the Poly effect
-const polyapp = document.getElementById('ic');
+// Get references to the button and canvasimg5
+const si = document.getElementById('si');
 
-polyapp.addEventListener('click', function () {
-  if (polyEffectApplied) {
-    // Remove the Poly effect (do not clear canvas2)
-    polyEffectApplied = false;
-  } else {
-    // Apply the Poly effect
-    poly(src);
-    polyEffectApplied = true;
+si.addEventListener('click', function() {
+    if (!siActive) {
+        rgb1.style.display = "block";
+        rgb2.style.display = "block";
+    
+    } else {
+        rgb1.style.display = "none";
+        rgb2.style.display = "none";
+       
+    }
+    siActive = !siActive;
+  });
+
+
+  const selectTone = document.getElementById('tone');
+  const canvases = document.querySelectorAll('canvas');
+  
+  selectTone.addEventListener('change', () => {
+    const selectedTone = selectTone.value;
+    adjustFilterAndBrightness(selectedTone);
+  });
+  
+  function adjustFilterAndBrightness(tone) {
+    let brightness = 100; // Default brightness in percentage
+    let filter = ''; // Default CSS filter value
+
+    if (tone === 'option1') {
+        brightness = 450; // Adjust brightness for option1 (brighter)
+        filter = 'saturate(8) blur(1px) hue-rotate(2500deg)'; // Add complex filter for option1
+      } else if (tone === 'option2') {
+        brightness = 50; // Adjust brightness for option2 (darker)
+        // No filter needed for option2
+      } else if (tone === 'option3') {
+        // Reset values for option3
+        brightness = 50;
+        // No filter needed for option3
+      }
+    
+  
+      canvases.forEach((canvas) => {
+    canvas.style.filter = filter; // Apply the CSS filter
+    const ctx = canvas.getContext('2d');
+    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; i < imgData.data.length; i += 4) {
+      imgData.data[i] = Math.min(255, imgData.data[i] * (brightness / 100));
+      imgData.data[i + 1] = Math.min(255, imgData.data[i + 1] * (brightness / 100));
+      imgData.data[i + 2] = Math.min(255, imgData.data[i + 2] * (brightness / 100));
+    }
+
+    ctx.putImageData(imgData, 0, 0);
+  });
+}
+  
+const selectMethod = document.getElementById('method');
+const canvases1 = document.querySelectorAll('canvas:not(#canvasimg3)'); // Exclude canvas3
+const coButton = document.getElementById('co'); // Get the "co" button element
+function updateButtonStyles() {
+    coButton.style.color = 'black';
+    coButton.style.background = 'transparent';
   }
-});
+  
+  selectMethod.addEventListener('change', () => {
+    const selectedMethod = selectMethod.value;
+  
+    // Check if option 4 is selected
+    if (selectedMethod === 'option4') {
+      // Add the glitch class to all canvases
+      canvases1.forEach((canvas) => {
+        canvas.classList.add('glitch');
+      });
+  
+      // Activate the "co" button
+      coButton.click();
+      updateButtonStyles(); // You can programmatically click the button
+    } else {
+      // Remove the glitch class from all canvases
+      canvases1.forEach((canvas) => {
+        canvas.classList.remove('glitch');
+      });
+    }
+  
+    // Check if option 5 is selected
+    if (selectedMethod === 'option5') {
+      // Add the "noise" class to all canvases
+      canvases1.forEach((canvas) => {
+        canvas.classList.add('noise');
+      });
+    } else {
+      // Remove the "noise" class from all canvases
+      canvases1.forEach((canvas) => {
+        canvas.classList.remove('noise');
+      });
+    }
+  
+    // Check if option 6 is selected
+    if (selectedMethod === 'option6') {
+      // Add both "glitch" and "noise" classes to all canvases
+      canvases1.forEach((canvas) => {
+        canvas.classList.add('glitch');
+      });
+      canvases1.forEach((canvas) => {
+        canvas.classList.add('noise');
+      });
+    }
+  });
 
-function poly() {
-  Polygonize({
-    src: src,
-    cellSize: 89, // Set the cellSize to 89
-    progress: function (progress) {
-      // console.log(progress + '%');
-    },
-    onSuccess: function (canvas) {
-      const canvasContainer = document.getElementById('canvasimg3'); // Use canvasimg2
-      canvasContainer.innerHTML = ''; // Clear existing content
-      canvasContainer.appendChild(canvas); // Append the Poly art canvas to canvasimg2
+
+  // Get references to the canvases
+
+
+// Function to draw a 2px dot on the canvas at a random position
+function drawRandomDot(canvas) {
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = 'white'; // You can set the color of the dots
+  const x = Math.random() * canvas.width;
+  const y = Math.random() * canvas.height;
+  ctx.beginPath();
+  ctx.arc(x, y, 1, 0, Math.PI * 20); // A 2px dot
+  ctx.fill();
+}
+
+// Function to add random dots to all canvases, overlapping each other
+function addRandomDotsToCanvases() {
+  canvases.forEach((canvas) => {
+    // You can specify the number of dots to add
+    const numDots = 100;
+    for (let i = 0; i < numDots; i++) {
+      drawRandomDot(canvas);
     }
   });
 }
 
-  
-  
-  
-  
-  
-  
+// Get the "confirm" button
+const confirmButton = document.getElementById('dot');
+
+// Add a click event listener to the "confirm" button
+confirmButton.addEventListener('click', () => {
+  // Call the function to add random dots to all canvases
+  addRandomDotsToCanvases();
+});
