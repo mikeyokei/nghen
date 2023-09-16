@@ -1,0 +1,71 @@
+@mixin h1n {
+    font-family: 's3', sans-serif;
+    font-size: 60px;
+}
+
+@mixin tbody {
+    font-family: 's3', sans-serif;
+    font-size: 28px;
+    line-height: 114.2%;
+}
+
+@mixin binfo {
+    font-family: 's3', sans-serif;
+    font-size: 28px;
+}
+
+@mixin tinput {
+    font-family: 'm1', sans-serif;
+    font-size: 28px;
+    line-height: 116.2% ;
+}
+
+@mixin bpage {
+    font-family: 's3', sans-serif;
+    font-size: 28px;
+}
+
+@mixin headline {
+    font-family: 'm1', sans-serif;
+    font-size: 60px;
+}
+
+@mixin tsmall {
+    font-family: 's3', sans-serif;
+    font-size: 20px;
+    line-height: 94.7%;
+}
+
+
+@mixin btopic {
+    font-family: 'm1', sans-serif;
+    font-size: 20px;
+    line-height: 116.2%;
+}
+
+@mixin Lheadline {
+    font-family: 's3', sans-serif;
+    font-size: 72px;
+}
+
+@mixin linearblack {
+    background-color: linear-gradient(180deg, #D9D8D7 79.35%, #000 105.37%);
+}
+
+
+@mixin lineargray {
+    background-color: linear-gradient(180deg, #D9D9D9 81.77%, #FFF 100%);
+}
+
+@mixin lineargreen {
+    background-color: linear-gradient(180deg, #D9D9D9 79.69%, #B3B492 100%);
+}
+
+@mixin radialblack {
+    background-color: radial-gradient(50% 50% at 50% 50%, #0E0E0E 0%, rgba(217, 217, 217, 0.00) 100%); }
+
+@mixin radialwhite {
+        background-color: linear-gradient(180deg, #D9D9D9 81.77%, #FFF 100%); }
+
+        @mixin radialgreen {
+            background-color: linear-gradient(180deg, #D9D9D9 79.69%, #B3B492 100%); }
