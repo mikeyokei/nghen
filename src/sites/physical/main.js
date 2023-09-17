@@ -895,7 +895,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 let min = 10;
-let max = 100;
+let max = 63;
 
 const calcLeftPosition = value => 100 / (100 - 10) *  (value - 10);
 
