@@ -33,6 +33,7 @@ backButtons.forEach(function(button) {
 ///////Click to change color
 
 // Get references to the button and the div
+const cus = document.getElementById('cus');
 const buttonq = document.getElementById('q');
 const buttonw = document.getElementById('w');
 const buttone = document.getElementById('e');
@@ -174,7 +175,7 @@ buttonq.addEventListener('click', function() {
       buttonglow1.addEventListener('click', glow2);
       buttonglow1.addEventListener('mouseover', glow1);
       buttonglow1.addEventListener('mouseout', changeToDefault);
-
+    
 
 
       buttonglow2.addEventListener ('click', function() {
@@ -192,11 +193,13 @@ buttonq.addEventListener('click', function() {
             buttont.style.filter = "opacity(1)";
             buttony.style.filter = "opacity(1)";
             buttonu.style.filter = "opacity(1)";
-           
+            buttonglow1.classList.add('defact');
             cus.style.display = "none";
             def.style.display = "flex";
             buttonglow1.style.color = '#B3B492';
             buttonglow2.style.color = 'black'; } )
+
+            buttonglow1.click();
 
             buttonglow2.addEventListener ('click', function() {
                 // Change the background color of Div B
@@ -243,7 +246,7 @@ buttonq.addEventListener('click', function() {
       /////
       /// Get references to the canvas, file input, and the image
       // Get references to the "cus" div, the canvas, and the file input
-    const cus = document.getElementById('cus');
+   
     const canvas1 = document.getElementById('canvasimg');
   
     const fileInput = document.getElementById('picker');
@@ -430,7 +433,7 @@ const ctx4 = canvas4.getContext('2d');
 function poly() {
 
   
-    const cellSize = 50;
+    const cellSize = 30;
     
     Polygonize({
       src: img4.src,
@@ -472,20 +475,43 @@ let isdivBSelected = false;
 let isdivDSelected = false;
 let isdivASelected = false;
 
+
 // Add click event listener to button A
 buttonglow1.addEventListener('click', () => {
-isdivBSelected = true;
-navigateToPage1();
-
-});
+    if (!isdivDSelected) {
+        // Perform the action for button A here
+        buttonglow2.style.color = 'B3B492';
+        isdivBSelected = true;
+      } else {
+        navigateToPage1();
+        buttonglow2.style.color = 'B3B492';
+        isdivBSelected = true;
+        isdivDSelected = false; // Reset the flag for button D
+      }
+    });
 
 // Add click event listener to button B
 buttonglow2.addEventListener('click', () => {
-isdivASelected = true;
-navigateToPage2();
-});
+    if (!isdivDSelected) {
+        // Perform the action for button A here
+        buttonglow1.style.color = 'B3B492';
+        isdivASelected = true;
+      } else {
+        navigateToPage2();
+        buttonglow1.style.color = 'B3B492';
+        isdivASelected = true;
+        isdivDSelected = false; // Reset the flag for button D
+      }
+    });
 
 
+    divD.addEventListener('click', () => {
+        isdivDSelected = true; // Set isdivDSelected to true when divD is clicked
+        // Now that isdivDSelected is true, check both conditions for navigation
+        navigateToPage1();
+        navigateToPage2();
+        });
+    
 // Function to navigate to page B when both buttons are selected
 function navigateToPage1() {
 if (isdivBSelected && isdivDSelected) {
@@ -504,12 +530,7 @@ function navigateToPage2() {
 }
 
 
-divD.addEventListener('click', () => {
-isdivDSelected = true; // Set isdivDSelected to true when divD is clicked
-// Now that isdivDSelected is true, check both conditions for navigation
-navigateToPage1();
-navigateToPage2();
-});
+
 
 //////
 const topics = document.querySelectorAll('.topic');
@@ -603,7 +624,7 @@ wl.addEventListener('click', function() {
 
 ll.addEventListener('click', function() {
     if (!llActive) {
-      imgbox.style.filter = "invert(0) grayscale(0.1)  contrast(100%) blur(1px) brightness(8)";
+      imgbox.style.filter = "invert(0) grayscale(0.1)  contrast(100%) blur(1px) brightness(2)";
     } else {
       undofilterimgbox();
     }
@@ -731,14 +752,14 @@ si.addEventListener('click', function() {
     let filter = ''; // Default CSS filter value
 
     if (tone === 'option1') {
-        brightness = 450; // Adjust brightness for option1 (brighter)
-        filter = 'saturate(8) blur(1px) hue-rotate(2500deg)'; // Add complex filter for option1
+        // Adjust brightness for option1 (brighter)
+        filter = 'brightness(2) saturate(2) blur(1px) hue-rotate(120deg)'; // Add complex filter for option1
       } else if (tone === 'option2') {
-        brightness = 50; // Adjust brightness for option2 (darker)
+        filter = 'brightness(0.5) saturate(1) blur(0px) hue-rotate(0deg)';  // Adjust brightness for option2 (darker)
         // No filter needed for option2
       } else if (tone === 'option3') {
         // Reset values for option3
-        brightness = 50;
+        filter = 'brightness(1) saturate(1) blur(1px) hue-rotate(0deg)';
         // No filter needed for option3
       }
     
@@ -760,53 +781,38 @@ si.addEventListener('click', function() {
   
 const selectMethod = document.getElementById('method');
 const canvases1 = document.querySelectorAll('canvas:not(#canvasimg3)'); // Exclude canvas3
-const coButton = document.getElementById('co'); // Get the "co" button element
-function updateButtonStyles() {
-    coButton.style.color = 'black';
-    coButton.style.background = 'transparent';
-  }
-  
+const glitch = document.getElementById('glitch'); // Get the "co" button element
+
   selectMethod.addEventListener('change', () => {
     const selectedMethod = selectMethod.value;
   
     // Check if option 4 is selected
     if (selectedMethod === 'option4') {
-      // Add the glitch class to all canvases
-      canvases1.forEach((canvas) => {
-        canvas.classList.add('glitch');
-      });
-  
-      // Activate the "co" button
-      coButton.click();
-      updateButtonStyles(); // You can programmatically click the button
+      glitch.style.display = 'flex';
+    // You can programmatically click the button
     } else {
-      // Remove the glitch class from all canvases
-      canvases1.forEach((canvas) => {
-        canvas.classList.remove('glitch');
-      });
+        glitch.style.display = 'none';
     }
   
     // Check if option 5 is selected
     if (selectedMethod === 'option5') {
       // Add the "noise" class to all canvases
       canvases1.forEach((canvas) => {
-        canvas.classList.add('noise');
+        canvas.classList.add('grain');
       });
     } else {
       // Remove the "noise" class from all canvases
       canvases1.forEach((canvas) => {
-        canvas.classList.remove('noise');
+        canvas.classList.remove('grain');
       });
     }
   
     // Check if option 6 is selected
     if (selectedMethod === 'option6') {
       // Add both "glitch" and "noise" classes to all canvases
+      glitch.style.display = 'flex';
       canvases1.forEach((canvas) => {
-        canvas.classList.add('glitch');
-      });
-      canvases1.forEach((canvas) => {
-        canvas.classList.add('noise');
+        canvas.classList.add('grain');
       });
     }
   });
@@ -822,7 +828,7 @@ function drawRandomDot(canvas) {
   const x = Math.random() * canvas.width;
   const y = Math.random() * canvas.height;
   ctx.beginPath();
-  ctx.arc(x, y, 1, 0, Math.PI * 20); // A 2px dot
+  ctx.arc(x, y, 2, 0, Math.PI * 40); // A 2px dot
   ctx.fill();
 }
 
@@ -844,4 +850,56 @@ const confirmButton = document.getElementById('dot');
 confirmButton.addEventListener('click', () => {
   // Call the function to add random dots to all canvases
   addRandomDotsToCanvases();
+});
+
+
+
+//////
+   // Set the default option's class to "selected" when the page loads
+   document.addEventListener("DOMContentLoaded", function () {
+    const dropdown = document.getElementById("tone");
+    const defaultOption = dropdown.querySelector("option");
+    defaultOption.classList.add("selected");
+});
+
+// Add an event listener to change the class when an option is selected
+const dropdown = document.getElementById("tone");
+dropdown.addEventListener("change", function () {
+    const selectedOption = dropdown.querySelector("option:checked");
+    dropdown.querySelectorAll("option").forEach(function (option) {
+        option.classList.remove("selected");
+    });
+    selectedOption.classList.add("selected");
+});
+// Prevent canvases from being dragged
+document.addEventListener('DOMContentLoaded', () => {
+    const opacityRange = document.getElementById('opacityRange');
+    const canvases = document.querySelectorAll('canvas');
+
+    opacityRange.addEventListener('input', () => {
+        // Calculate opacity value inversely, so 1 corresponds to full opacity, and 10 corresponds to 0.1 opacity.
+        const opacityValue = 1 - (opacityRange.value - 10) * 0.009;
+
+        canvases.forEach(canvas => {
+            canvas.style.opacity = opacityValue.toFixed(1); // Limit opacity value to one decimal place.
+        });
+    });
+});
+
+
+let min = 10;
+let max = 100;
+
+const calcLeftPosition = value => 100 / (100 - 10) *  (value - 10);
+
+$('#opacityRange').on('input', function(e) {
+  const newValue = parseInt(e.target.value);
+  if (newValue > max) return;
+  min = newValue;
+  $('#thumbMin').css('left', calcLeftPosition(newValue) + '%');
+  $('#min').html(newValue);
+  $('#line').css({
+    'left': calcLeftPosition(newValue) + '%',
+    'right': (100 - calcLeftPosition(max)) + '%'
+  });
 });
