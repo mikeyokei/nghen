@@ -256,6 +256,7 @@ buttonq.addEventListener('click', function() {
     const canvas4 = document.getElementById('canvasimg4');
     const canvas5 = document.getElementById('canvasimg5');
     const canvas6 = document.getElementById('canvasimg6');
+    const canvas7 = document.getElementById('canvasimg7');
     let img2;
     let img4 = new Image(); 
   
@@ -281,6 +282,8 @@ buttonq.addEventListener('click', function() {
             canvas5.height = img.height;
             canvas6.width = img.width;
             canvas6.height = img.height;
+            canvas7.width = img.width;
+            canvas7.height = img.height;
             const ctx1 = canvas1.getContext('2d');
             // Draw the image on the canvas
             ctx1.drawImage(img, 0, 0, canvas1.width, canvas1.height);
@@ -295,6 +298,8 @@ buttonq.addEventListener('click', function() {
             ctx5.drawImage(img, 0, 0, canvas5.width, canvas5.height);
             const ctx6 = canvas5.getContext('2d');
             ctx6.drawImage(img, 0, 0, canvas6.width, canvas6.height);
+            const ctx7 = canvas7.getContext('2d');
+            ctx7.drawImage(img, 0, 0, canvas7.width, canvas7.height);
             fileNameElement.textContent = file.name;
             //////
             const dataUrl = canvas4.toDataURL;
@@ -318,6 +323,8 @@ buttonq.addEventListener('click', function() {
         canvas5.height = 0;
         canvas6.width = 0;
         canvas6.height = 0;
+        canvas7.width = 0;
+        canvas7.height = 0;
         fileNameElement.textContent = '';
 
       }

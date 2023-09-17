@@ -1000,7 +1000,6 @@ background: radial-gradient(50% 50.00% at 50% 50.00%, #D9D9D9 0%, #9c9d7e 55.21%
     display: grid;
     min-width: 92%;
     grid-template-rows: 1fr;
-    grid-template-columns: 0% 1fr;
     align-items: center;
  }
 
@@ -1034,7 +1033,7 @@ background: radial-gradient(50% 50.00% at 50% 50.00%, #D9D9D9 0%, #9c9d7e 55.21%
     grid-gap: 0.5em;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     height: 100%;
 }
 
@@ -1074,9 +1073,9 @@ background: radial-gradient(50% 50.00% at 50% 50.00%, #D9D9D9 0%, #9c9d7e 55.21%
 .swiper-slide.color-8.swiper-slide-active {
     
     align-self: flex-end;
-    height: 92%;
+    height: 94%;
     /* margin: 1em; */
-    gap: 10px;
+    gap: 1em;
     grid-template-columns: 1fr;
     width: 100%;
     flex-direction: column;
