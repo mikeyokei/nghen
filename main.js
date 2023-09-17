@@ -55,6 +55,8 @@ const newImageArray = [
     "src/Img/move/c.svg",
     "src/Img/move/d.svg",
     "src/Img/move/e.svg",
+    "src/Img/move/f.svg",
+
     // Add more image URLs as needed
 ];
 
