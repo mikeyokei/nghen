@@ -257,12 +257,14 @@ nav {
 
 .swiper-slide.color-4 span {
     font-family: 's3', sans-serif;
-    font-size: 32px; 
-    padding: 1em;
+    font-size: 24px;
+    padding: 1em 0em 0em 1em;
 }
 
 .swiper-slide.color-4 .nav {
-    top: 78% !important;
+    padding-bottom: 0;
+    margin-bottom: 2em;
+    position: static !important;
 }
 
  
@@ -366,6 +368,10 @@ p.color2 {
    padding-left: 0em !important; 
 }
 
+.swiper-slide.color-4 button.back {
+    padding-left: 0em !important; 
+ }
+
 .swiper-slide.color-2.swiper-slide-prev {
     top: 5%;
     grid-template-rows: 1fr 2fr 1fr;
@@ -410,6 +416,7 @@ p.color2 {
     gap: 40px;
     flex-direction: column;
 }
+
 
 .swiper-slide.color-4.swiper-slide-prev {
     align-items: center;
@@ -938,31 +945,37 @@ h3 {
 
 
 .paper-content {
+    text-align: left;
+    width: 100%;
     height: 90%;
     max-height: 90%;
-    top: 0px; left: 0px; bottom: 0px; right: 0px;
-    background: linear-gradient(transparent, transparent 38px, rgb(0, 0, 0) 28px);
-    background-size: 40px 40px;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background: linear-gradient(transparent, transparent 39px, rgb(0, 0, 0) 28px);
+    background-size: 1px 40px;
 }
 
 .paper-content textarea {
+    overflow: hidden;
+    align-self: start;
     font-family: 'm1', sans-serif !important;
-font-size: 20px !important;
+    font-size: 20px !important;
     width: 100%;
     max-width: 100%;
     height: 100%;
     max-height: 100%;
-
-    padding: 0px 10px;
+    /* padding: 0px 10px; */
     border: 0;
     background: transparent;
-    color: rgb(2, 2, 2);
-   line-height: 200%;
-      text-align: left !important;
- 
-    
+    color: rgba(130, 130, 130, 0.717);
+    line-height: 200%;
+    /* text-align: left !important; */
     box-sizing: border-box;
     z-index: 1;
+    justify-content: flex-start;
+    /* justify-items: flex-end; */
 }
 
 .paper {
@@ -973,6 +986,16 @@ font-size: 20px !important;
     z-index: 3;
     top: 24%;
 
+}
+
+.paper {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    z-index: 3;
+    top: 24%;
+    align-content: flex-start;
+    align-items: flex-start;
 }
 
 select {
@@ -1342,4 +1365,152 @@ div#box3text {
 div#almost {
     /* margin: 8em; */
     width: 80%;
+}
+
+
+.swiper-slide.color-4.swiper-slide-active {
+
+    gap: 2em !important;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    display: grid;
+}
+
+
+
+.shipinfo {
+    padding: 0em 10em;
+    height: 100%;
+    grid-template-columns: 3fr 2fr;
+    display: grid;
+    grid-gap: 1.5em;
+}
+#sum p {
+    position: unset;
+}
+
+div#inline {
+    grid-template-columns: 1fr auto;
+    display: grid;
+    flex-direction: row;
+    justify-items: start;
+}
+
+#inline p {
+    font-size: 24px;
+    height: fit-content;
+    line-height: 114.7%;
+    margin: 10px 0px;
+    text-align: left;
+    justify-content: flex-start;
+}
+#inline span {
+    padding: 0px;
+}
+
+.shipdetail {
+    height: 100%;
+    gap: 1em;
+    display: grid;
+    margin: em;
+    flex-direction: column;
+}
+div#sum {
+    grid-gap: 6px;
+    grid-template-rows: auto auto auto auto 1fr;
+    display: grid;
+    border: 2px solid black;
+    border-radius: 18px;
+    padding: 1em;
+}
+
+.shipdetail .paper {
+    /* padding: 20px; */
+    border: 2px solid black;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+div#linesumm {
+    background: black;
+    height: 2px;
+}
+
+#sum h1 {
+    text-align: left;
+    margin: 0px;
+    font-weight: 100;
+    font-family: 's3', sans-serif;
+    font-size: 36px;
+}
+
+div#ordersum {
+    display: grid;
+    grid-gap: 6px;
+}
+
+.swiper-slide.color-4.swiper-slide-active h1 {
+    margin: 0px;
+}
+
+div#subtotal {
+    display: grid;
+    grid-gap: 6px;
+}
+
+div#total {
+    display: grid;
+    grid-gap: 6px;
+}
+
+#inline span {
+    font-size: 16px;
+    padding: 0px;
+}
+
+#pro .paper-content {
+    text-align: left;
+    width: 100%;
+    height: 90%;
+    max-height: 90%;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background: linear-gradient(transparent, transparent 39px, rgb(0, 0, 0) 28px);
+    background-size: 1px 40px;
+}
+
+#add .paper-content {
+    text-align: left;
+    width: 100%;
+    height: 90%;
+    max-height: 90%;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background: linear-gradient(transparent, transparent 39px, rgb(0, 0, 0) 28px);
+    background-size: 1px 40px;
+}
+
+#in .paper-content {
+    text-align: left;
+    width: 100%;
+    height: 90%;
+    max-height: 90%;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background: linear-gradient(transparent, transparent 39px, rgb(0, 0, 0) 28px);
+    background-size: 1px 40px;
+}
+
+div#totalbox {
+    align-self: center;
+    background: radial-gradient(50% 50% at 50% 50%, #D9D9D9 0%, #B3B492 55.21%, rgba(217, 217, 217, 0.00) 100%);
+    width: 60%;
+    height: 100%;
+    justify-self: center;
 }
