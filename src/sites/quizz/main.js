@@ -277,7 +277,7 @@ function generateAnswer() {
             answerContainer.textContent = "No matching answers found.";
         }
     } else {
-        answerContainer.textContent = "Please select one letter (A-J) and one number (1-4).";
+        answerContainer.textContent = "Please select at least one topic";
     }
 }
 
