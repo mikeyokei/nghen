@@ -25,6 +25,12 @@
             <feTurbulence baseFrequency="0.01 0.4" result="NOISE" numOctaves="2" />
             <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="20" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
         </filter>
+        <filter id="grain">
+            <feTurbulence baseFrequency="0.60,0.90" result="colorNoise" />
+            <feColorMatrix in="colorNoise" type="matrix" values=".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0"/>
+            <feComposite operator="in" in2="SourceGraphic" result="monoNoise"/>
+            <feBlend in="SourceGraphic" in2="monoNoise" mode="multiply" />
+        </filter>
     </svg>
  <header>
     <nav>
@@ -66,7 +72,7 @@
             </div>
         </div>
             <div class="selectdes">
-                <button id="selectdef">default design</button>
+                <button class="defact" id="selectdef">default design</button>
                 <button id="selectcus">custom design</button>
             </div>
         </div>
@@ -84,6 +90,9 @@
                     <canvas id="canvasimg5"></canvas>
                     <canvas id="canvasimg6"></canvas>
                     <div id="img2bg"></div>
+                    <div id="glitch">
+                        <img src="./src/Img/glitch.svg" alt="glitchpng">
+                    </div>
                  </div>
                         <div id="ui1">
                            <div class="ui" id="uia">
@@ -112,7 +121,17 @@
                         <div id="ui2">
                             <div class="ui" id="uic">
                                 <h3>closeness</h3>
-                                <div class="overlap"></div>
+                                <div class="overlap">
+                                    <div class="slide">
+                                        <div class="line" id="line" style="left: 0%; right: 0%;"></div>
+                                        <span class="thumb" id="thumbMin" style="left: 0%;"></span>
+                                        <div id="knob2"></div>
+                                     
+                                    </div>
+                                    <div id="range"><input id="opacityRange"  type="range" value="0" max="100" min="10" step="1">
+                                    </div>
+                                    
+                                </div>
                             </div>
                             <div class="ui" id="uid">
                                 <h3>communication method</h3>

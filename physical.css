@@ -198,7 +198,7 @@ nav {
         z-index: 6;
         position: absolute;
         top: 78%;
-      
+      padding-bottom: 1em;
         justify-content: center;
         flex-direction: row;
         width: 100%;
@@ -525,10 +525,15 @@ img#inbox {
 }
 
 #cus {
+    align-self: center;
+    min-width: 70%;
+    height: 100%;
+    border: 1px solid rgba(224, 223, 223, 0.102);
+    border-radius: 54px;
+    display: none;
         overflow: hidden;
         max-width: 300px;
         position: relative;
-        display: flex;
         border: 1px solid black;
         background-color: #d9d8d7;
         background: #d9d8d7;
@@ -536,7 +541,19 @@ img#inbox {
         justify-content: center;
 }
 
-
+#def {
+    align-self: center;
+    min-width: 70%;
+    height: 100%;
+    border: 1px solid rgba(224, 223, 223, 0.102);
+    border-radius: 54px;
+    display: flex;
+    border: 1px solid black;
+    background-color: #d9d8d7;
+    background: #d9d8d7;
+    align-items: flex-start;
+    justify-content: center;
+}
 
 .selectdes {
     margin-top: 4em;
@@ -580,15 +597,7 @@ div#layout1 {
     background: radial-gradient(50% 50% at 50% 50%, #ffffff 0%, rgba(217, 217, 217, 0.00) 100%);
 }
 
-#def {
 
-    display: none;
-    border: 1px solid black;
-    background-color: #d9d8d7;
-    background: #d9d8d7;
-    align-items: flex-start;
-    justify-content: center;
-}
 
 .selectdes button:hover {
     color: white;
@@ -680,18 +689,14 @@ div#box {
   }
 
   #canvasimg3 {
-    display: none; 
-    /* z-index: 0; */
+    display: none;
     object-fit: cover;
-    /* right: 50%; */
-    /* align-self: flex-end; */
-    max-width: 50%;
-  height: 100%;
-    /* object-fit: cover; */
+    /* max-width: 50%; */
+    height: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 30%;
+    top: 0px;
+    left: 0px;
+    width: 0.5%;
   }
 
 
@@ -833,6 +838,8 @@ h3 {
 
 
 .swiper-slide.color-2 .nav {
+  
+        padding-bottom: 0.5em;
     margin-bottom: 0.5em;
     align-self: start;
     position: UNSET!important;
@@ -941,7 +948,7 @@ font-size: 20px !important;
    
     flex-direction: column;
     display: flex;
-    max-width: 400px;
+   
     z-index: 3;
     top: 24%;
 
@@ -968,6 +975,8 @@ select {
 select:hover {
     color: #a9ab88;
 }
+
+
 
 #uib, #uid {
     justify-items: center;
@@ -996,7 +1005,7 @@ option {
     bottom: 0;
     background-image: inherit;
     image-rendering: pixelated;
-    transform: scaleY(-100);
+    transform: scaleX(-100) !important;
   }
 
 
@@ -1044,8 +1053,8 @@ display: block !important;
   #canvasimg5 {
     display: none;
     background-blend-mode: multiply;
-    transform: scale(1.1);
-    filter: hue-rotate(80deg) saturate(7) opacity(0.4);
+    transform: scale(1.05);
+    filter: hue-rotate(0deg) saturate(7) opacity(0.4);
     /* display: none; */
     /* z-index: 0; */
     object-fit: cover;
@@ -1076,12 +1085,31 @@ display: block !important;
     width: 100%; 
   }
 
+  #glitch {
+    display: none;
+    mix-blend-mode: screen;
+    filter:  opacity(0.5);
+    /* z-index: 0; */
+    object-fit: cover;
+    /* right: 50%; */
+    /* align-self: flex-end; */
+  height: 100%;
+    /* object-fit: cover; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+  }
 
   .posterize-filter {
     filter: url('#posterize');
 }
 .noise {
     filter: url('#noise');
+}
+
+.grain {
+    filter: url('#grain'); 
 }
 
 /* Define a CSS class with the styles you want to apply */
@@ -1126,15 +1154,98 @@ display: block !important;
     filter: hue-rotate(280deg) saturate(7) opacity(12); }
 
 
-    .glitch {
-        animation: glitch 0.2s linear infinite alternate;
-      }
-      
-      @keyframes glitch {
-        0% {
-          transform: translate(0);
-        }
-        100% {
-          transform: translate(2px, -2px);
-        }
-      }
+
+
+.defact {
+    color: #B3B492;
+}
+
+.range-slide {
+    position: relative;
+    margin: 40px;
+    height: 4px;
+    width: 240px;
+  }
+
+  .overlap {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+  
+.slide {
+    /* opacity: 0; */
+    width: 60%;
+    position: absolute;
+    /* top: 0; */
+    height: 4px;
+    background-color: #ffffff00;
+}
+  
+.line {
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 4px;
+    background-color: #00000000;
+}
+  
+.thumb {
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    text-align: left;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #ffffff00;
+    border-radius: 50%;
+    outline: none;
+    top: -3em;
+    height: 6em;
+    width: 6em;
+}
+
+#opacityRange {
+    /* left: 0; */
+    width: 100%;
+    -webkit-appearance: none;
+cursor: pointer;
+    z-index: 3;
+    height: 4em;
+    /* top: 0; */
+    /* width: 100%; */
+    opacity: 1;
+    margin: 0;
+}
+
+.overlap {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+div#range {
+    opacity: 0;
+    width: 60%;
+    display: flex;
+}
+
+#knob2 {
+    right: 0;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    text-align: left;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #ffffff00;
+    border-radius: 50%;
+    outline: none;
+    top: -3em;
+    height: 6em;
+    width: 6em;
+}
