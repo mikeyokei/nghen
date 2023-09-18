@@ -1,0 +1,394 @@
+
+
+@font-face {
+    font-family: 's1';
+    src: url("./Font/SVN-DeFontePlus/SVN-DeFontePlus-DemiGras.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 's1';
+    src: url("./Font/SVN-DeFontePlus/SVN-DeFontePlus-DemiGras.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 's2';
+    src: url("./Font/SVN-DeFontePlus/SVN-DeFontePlus-Gros.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 's3';
+    src: url("./Font/SVN-DeFontePlus/SVN-DeFontePlus-Leger.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 's4';
+    src: url("./Font/SVN-DeFontePlus/SVN-DeFontePlus-Normale.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 'm1';
+    src:  url("./Font/Millionaire-Script.ttf") format('truetype');
+}
+
+h1 {
+    font-weight: 100;
+    font-family: 'm1', sans-serif;
+    font-size: 60px;
+    line-height: 138.684%;
+}
+
+h2 {
+    font-weight: 100;
+    font-family: 's3', sans-serif;
+    font-size: 60px;
+}
+
+button {
+    padding: 0 !important;
+    cursor: pointer;
+    border: unset;
+    background: rgba(0, 0, 0, 0);
+    font-family: 's3', sans-serif;
+    font-size: 32px;
+    transition: all 0.3s;
+
+}
+
+
+/* Main Css here*/
+
+
+html {
+    user-select: none;
+    height: 100vh;
+    width: 100%;
+    margin: 0px;
+    overflow: hidden;
+  }
+
+  body {
+    overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+    margin: 0px;
+    /* font-size: 14px; */
+    line-height: 20px;
+    height: 100%;
+    width: 100%;
+    background: #D9D8D7;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1.5fr 1.5fr 1fr 1fr;
+    overflow-y: scroll;
+}
+
+
+
+html ::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+body ::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+main ::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+
+button {
+    font-family: 's3', sans-serif;
+    font-size: 32px;
+}
+
+p {
+    font-family: 's3', sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 114.2%;
+    }
+    
+    
+    
+    a img {
+        width: 50%;
+        display: flex;
+        align-self: center;
+        height: 100%;
+        background-color: #00000000;
+        transition: background-color .5s ease;
+        transition: all 0.5s;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        max-width: 70%;
+    }
+    
+    a img:hover {
+        filter: invert(1) ;
+    }
+    
+   
+    
+    a {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        color: black;
+        font-family: 's3', sans-serif;
+        font-size: 24px;
+        text-decoration: none;
+        transition: all 0.3s;
+        justify-content: center;
+    }
+    
+    a:hover {
+        color: #B3B492;
+    }
+    
+   
+    section {
+        grid-template-rows: auto auto;
+        height: 100vh;
+        width: 100%;
+        display: grid;
+    }
+
+    section a {
+       
+            /* height: 100%; */
+            display: flex;
+            place-items: center;
+            width: 100%;
+            color: black;
+            font-family: s3, sans-serif;
+            font-size: 24px;
+            text-decoration: none;
+            transition: all 0.3s ease 0s;
+            justify-content: center;
+            align-content: flex-start;
+            align-items: flex-start;
+    }
+
+    div#loading {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        place-content: center;
+        position: relative;
+        bottom: 20%;
+    }
+
+    div#loading:hover {
+        cursor: pointer;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #B3B492 51.56%, rgba(255, 255, 255, 0.00) 100%);
+    }
+
+    img#hidden {
+        display: grid;
+        align-self: center;
+        z-index: -1;
+        position: relative;
+        bottom: 50%;
+    }
+
+    div#layer {
+        display: flex;
+        flex-flow: column wrap;
+        place-content: center;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    #layer p {
+        width: 50%;
+        text-align: center;
+        margin: 0px !important;
+    }
+
+    #typing {
+        padding: 0 10px 0 0;
+        margin: 0;
+      }
+      
+      #cursor {
+        height: 60px;
+        width: 2px;
+        background: black;
+        margin: 0;
+        display: inline-block;
+      }
+
+   
+      body > section {
+        scroll-snap-align: start;
+      }
+
+      section.b {
+        gap: 2em;
+        height: auto !important;
+    }
+
+    div#intro {
+        text-align: center;
+        display: flex;
+        width: 60%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+      
+
+    div#intro h1 {
+        margin: 0em !important;
+    }
+
+    .left {
+        justify-self: start;
+    }
+
+    .right {
+        justify-self: end;
+    }
+
+    .center {
+        justify-self: center;
+    }
+
+    .c h1 {
+        text-align: center;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #B3B492 51.56%, rgba(255, 255, 255, 0.00) 100%);
+    }
+    
+
+      section.c {
+        gap: 2em;
+        height: auto !important;
+    }
+
+    div#his {
+        gap: 4em;
+        display: flex;
+        flex-direction: column;
+    }
+    div#tit {
+        background: linear-gradient(180deg, rgba(217, 217, 217, 0.00) 0%, #B3B492 100%);
+        height: 60px;
+        /* width: 100%; */
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: flex-end;
+    }
+
+    h2#h2bg {
+        margin: 0;
+        height: 40px;
+        background: #d9d8d7;
+        justify-items: flex-end;
+    }
+
+ #tit h2 {
+    margin: 0;
+    height: 40px;
+    background: #d9d8d7;
+    justify-items: flex-end;
+    opacity: 0;
+ }
+
+ div#line {
+    z-index: 1;
+    display: flex;
+    bottom: 5px;
+    background: black;
+    height: 4px;
+    position: relative;
+}
+
+h2#h2bg {
+    /* border-radius: 30px 30px 0px 0px; */
+    text-decoration: underline rgb(183 183 153 / 0%);
+    z-index: 3;
+    margin: 0;
+    height: 40px;
+    background: linear-gradient(180deg, #b3b49214 20%, #afb094 80%);
+    justify-items: flex-end;
+    opacity: 1;
+}
+
+#tit.l {
+    justify-content: center;
+    padding-right: 6em;
+    padding-left: 6em;
+}
+
+#tit.r {
+    justify-content: flex-end;
+    padding-right: 6em;
+    padding-left: 6em;
+}
+
+#tit.cen {
+    justify-content: flex-start;
+    padding-right: 6em;
+    padding-left: 10em;
+}
+
+#head p {
+    padding: 0em 7em;
+    text-align: center;
+    justify-content: center;
+    /* width: 60%; */
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+#his p {
+    padding: 0em 7em;
+    text-align: center;
+    justify-content: center;
+    /* width: 60%; */
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+#bgd {
+    background: linear-gradient(180deg, rgba(217, 217, 217, 0.00) 0%, #B3B492 47.4%, rgba(217, 217, 217, 0.00) 100%);
+}
+
+.d h1 {
+    text-align: center;
+    justify-content: center;
+    /* width: 60%; */
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    padding: 0em 2em;
+    margin: 0;
+}
+
+section.e {
+       
+    grid-template-rows: 1fr !important;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+}
+
+a:hover {
+    background: linear-gradient(180deg, rgba(217, 217, 217, 0.00) 0%, #B3B492 47.4%, rgba(217, 217, 217, 0.00) 100%);
+}
