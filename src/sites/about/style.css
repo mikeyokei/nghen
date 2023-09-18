@@ -31,14 +31,14 @@
 }
 
 h1 {
-    font-weight: 100;
+    font-weight: 10;
     font-family: 'm1', sans-serif;
     font-size: 60px;
     line-height: 138.684%;
 }
 
 h2 {
-    font-weight: 100;
+    font-weight: 10;
     font-family: 's3', sans-serif;
     font-size: 60px;
 }
@@ -272,7 +272,7 @@ p {
     
 
       section.c {
-        gap: 2em;
+        gap: 4em;
         height: auto !important;
     }
 
@@ -321,7 +321,7 @@ h2#h2bg {
     z-index: 3;
     margin: 0;
     height: 40px;
-    background: linear-gradient(180deg, #b3b49214 20%, #afb094 80%);
+    background: linear-gradient(180deg, #b3b49214 20%, #c0c1b3 80%);
     justify-items: flex-end;
     opacity: 1;
 }
@@ -345,7 +345,7 @@ h2#h2bg {
 }
 
 #head p {
-    padding: 0em 7em;
+    padding: 0em 9em;
     text-align: center;
     justify-content: center;
     /* width: 60%; */
@@ -355,7 +355,7 @@ h2#h2bg {
 }
 
 #his p {
-    padding: 0em 7em;
+    padding: 0em 9em;
     text-align: center;
     justify-content: center;
     /* width: 60%; */
@@ -389,6 +389,12 @@ section.e {
     justify-content: flex-start;
 }
 
-a:hover {
-    background: linear-gradient(180deg, rgba(217, 217, 217, 0.00) 0%, #B3B492 47.4%, rgba(217, 217, 217, 0.00) 100%);
+a button:hover {
+    width: 100%;
+    color: white !important;
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #D9D9D9 0%, #B3B492 55.21%, rgba(217, 217, 217, 0.00) 100%);
+}
+
+a button {
+    height: 100%;
 }
