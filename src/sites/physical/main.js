@@ -580,11 +580,12 @@ imgbox1.classList.remove('motion');
 
 function undofilterimgbox() {
 imgbox.style.filter = "";
-
+canvas7.style.filter = "";
 }
 
 function undobgimg2() {
 img2bg.style.background = "";
+
 }
 
 // Function to hide imgbox1
@@ -603,6 +604,7 @@ function removeexp() {
     imgbox1.style.filter = "";
     imgbox.style.filter = "";
     imgbox1.style.transform = "";
+    canvas7.style.filter = "";
     }
     
 
@@ -611,6 +613,7 @@ function removeexp() {
 mh.addEventListener('click', function() {
     if (!mhActive) {
       imgbox.style.filter = "invert(1)";
+      canvas7.style.filter = "invert(1)";
     } else {
       undofilterimgbox();
 
@@ -632,6 +635,7 @@ wl.addEventListener('click', function() {
 ll.addEventListener('click', function() {
     if (!llActive) {
       imgbox.style.filter = "invert(0) grayscale(0.1)  contrast(100%) blur(1px) brightness(1.5)";
+      canvas7.style.filter = "invert(0) grayscale(0.1)  contrast(100%) blur(1px) brightness(1.5)";
     } else {
       undofilterimgbox();
     }

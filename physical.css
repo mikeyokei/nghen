@@ -1353,7 +1353,6 @@ div#range {
     position: absolute;
     display: flex;
     background-blend-mode: multiply;
-    filter: hue-rotate(280deg) saturate(7) opacity(0.5);
     /* z-index: 0; */
     object-fit: cover;
     /* right: 50%; */
