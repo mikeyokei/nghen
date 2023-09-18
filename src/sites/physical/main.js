@@ -631,7 +631,7 @@ wl.addEventListener('click', function() {
 
 ll.addEventListener('click', function() {
     if (!llActive) {
-      imgbox.style.filter = "invert(0) grayscale(0.1)  contrast(100%) blur(1px) brightness(2)";
+      imgbox.style.filter = "invert(0) grayscale(0.1)  contrast(100%) blur(1px) brightness(1.5)";
     } else {
       undofilterimgbox();
     }
@@ -760,7 +760,7 @@ si.addEventListener('click', function() {
 
     if (tone === 'option1') {
         // Adjust brightness for option1 (brighter)
-        filter = 'brightness(2) saturate(2) blur(1px) hue-rotate(120deg)'; // Add complex filter for option1
+        filter = 'brightness(1.4) saturate(1.2) blur(1px) hue-rotate(320deg)'; // Add complex filter for option1
       } else if (tone === 'option2') {
         filter = 'brightness(0.5) saturate(1) blur(0px) hue-rotate(0deg)';  // Adjust brightness for option2 (darker)
         // No filter needed for option2
@@ -789,6 +789,7 @@ si.addEventListener('click', function() {
 const selectMethod = document.getElementById('method');
 const canvases1 = document.querySelectorAll('canvas:not(#canvasimg3)'); // Exclude canvas3
 const glitch = document.getElementById('glitch'); // Get the "co" button element
+let divDActive = false; 
 
   selectMethod.addEventListener('change', () => {
     const selectedMethod = selectMethod.value;
@@ -821,6 +822,7 @@ const glitch = document.getElementById('glitch'); // Get the "co" button element
       canvases1.forEach((canvas) => {
         canvas.classList.add('grain');
       });
+      divDActive = true;
     }
   });
 
@@ -878,6 +880,7 @@ dropdown.addEventListener("change", function () {
     });
     selectedOption.classList.add("selected");
 });
+
 // Prevent canvases from being dragged
 document.addEventListener('DOMContentLoaded', () => {
     const opacityRange = document.getElementById('opacityRange');
@@ -909,4 +912,29 @@ $('#opacityRange').on('input', function(e) {
     'left': calcLeftPosition(newValue) + '%',
     'right': (100 - calcLeftPosition(max)) + '%'
   });
+});
+
+divD.addEventListener('click', function() {
+  if (!llActive) {
+      imgbox.style.filter = "invert(0) grayscale(0.1) contrast(100%) blur(1px) brightness(2)";
+  } else {
+      undofilterimgbox();
+  }
+  llActive = !llActive;
+  hideImgBox1();
+});
+
+function setSelectedOption6() {
+  selectMethod.value = 'option6';
+
+  // Show the "glitch" and apply "grain" class to canvases
+  glitch.style.display = 'flex';
+  canvases1.forEach((canvas) => {
+      canvas.classList.add('grain');
+  });
+}
+
+divD.addEventListener('click', () => {
+  // Call the function to set the selected method to "option6"
+  setSelectedOption6();
 });

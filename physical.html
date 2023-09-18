@@ -22,8 +22,8 @@
             </feComponentTransfer>
         </filter>
         <filter id="noise" x="0%" y="0%" width="100%" height="100%">
-            <feTurbulence baseFrequency="0.01 0.4" result="NOISE" numOctaves="2" />
-            <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="20" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
+            <feTurbulence baseFrequency="0.4 0.4" result="NOISE" numOctaves="2" />
+            <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="100" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
         </filter>
         <filter id="grain">
             <feTurbulence baseFrequency="0.60,0.90" result="colorNoise" />
@@ -128,7 +128,7 @@
                                         <div id="knob2"></div>
                                      
                                     </div>
-                                    <div id="range"><input id="opacityRange"  type="range" value="0" max="100" min="10" step="1">
+                                    <div id="range"><input id="opacityRange"  type="range" value="1" max="63" min="30" step="1">
                                     </div>
                                     
                                 </div>
@@ -145,7 +145,7 @@
                                 <div class="paper">
                                     <h3>comfortable topic</h3>
                                     <div class="paper-content">
-                                        <textarea></textarea>
+                                        <textarea>gossip, grades, family updates</textarea>
                                 </div>
                             </div>
                              <button id="dot">confirm</button>
@@ -186,9 +186,9 @@
                 <div id="in" class="paper">
                     <span>recipient information</span>
                     <div class="paper-content">
-                        <textarea>   mai trung kiên
-                               +84 090 113 0042
-                              trggkn@gmail.com
+                        <textarea>     mai trung kiên                  
+    +84 090 113 0042
+    trggkn@gmail.com
                         </textarea>
                 </div>
             </div>
@@ -196,10 +196,10 @@
                     <span>shipping address</span>
                     <div class="paper-content">
                         <textarea>
-                           97b ly tu trong
-                           ben thanh
-                           district 1
-                           ho chi minh city
+    97b ly tu trong
+    ben thanh
+    district 1
+    ho chi minh city
                         </textarea>
                 </div>
             </div>
@@ -207,7 +207,7 @@
                     <span>promotion</span>
                     <div class="paper-content">
                         <textarea>
-                           nghen2025
+    nghen2025
                         </textarea>
                 </div>
             </div>
