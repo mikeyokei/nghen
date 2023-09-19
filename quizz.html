@@ -1,95 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" 
-    content="#ecfff9" 
-    media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#ecfff9" media="(prefers-color-scheme: light)">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link href="./src/sites/quizz/style.css" rel="stylesheet">
-    
+
     <title>Quizz</title>
 </head>
+
 <body>
- <header>
-    <nav>
-        <div class="logo">
-            <a href="https://mikeyokei.github.io/nghen/"><img id="logo" src="./src/Logo/logo.svg" alt="logo"></a>
-        </div>
-        <div class="navigator">
-            <a href="/nghen/aboutu.html">about</a>
-            <a href="">blog</a>
-        </div>
-    </nav>
- </header>
-
- <div class="swiper-container">
-    
-    <div class="swiper-wrapper">
-        <div class="swiper-slide color-1"> 
-            <p>what can we call you?</p>
-            <div class="text">
-                <textarea id="nameInput"></textarea>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="https://mikeyokei.github.io/nghen/"><img id="logo" src="./src/Logo/logo.svg" alt="logo"></a>
             </div>
-            <div class="nav">
-                <button class="back"> <a href="/nghen/story.html">back</a></button>
-                <button class="cont"><a>continue</a></button>
+            <div class="navigator">
+                <a href="/nghen/aboutu.html">about</a>
+                <a href="">blog</a>
             </div>
-        </div>
-        <div class="swiper-slide color-2">
+        </nav>
+    </header>
 
-            <p class="color2">How is your relationship of you and your parent/parents?</p>
-            <div class="drag">
-                <div class="varname" id="round">
-                    <p></p>
+    <div class="swiper-container">
+
+        <div class="swiper-wrapper">
+            <div class="swiper-slide color-1">
+                <p>what can we call you?</p>
+                <div class="text">
+                    <textarea id="nameInput"></textarea>
                 </div>
-                <div class="parent" id="round">
-                    <div class="custom-dropdown" id="my-select">
-                        <button id="dropdown-button"> <span>Parents</span> <img class="icon" src="./src/Img/icon.svg" alt="drop"> </button>
-                        <ul id="dropdown-options">
-                            <li class="dad">Dad</li>
-                            <li>Parents</li>
-                            <li class="mom">Mom</li>
-                        </ul>
+                <div class="nav">
+                    <button class="back"> <a href="/nghen/story.html">back</a></button>
+                    <button class="cont"><a>continue</a></button>
+                </div>
+            </div>
+            <div class="swiper-slide color-2">
+
+                <p class="color2">How is your relationship of you and your parent/parents?</p>
+                <div class="drag">
+                    <div class="varname" id="round">
+                        <p></p>
+                    </div>
+                    <div class="parent" id="round">
+                        <div class="custom-dropdown" id="my-select">
+                            <button id="dropdown-button"> <span>Parents</span> <img class="icon"
+                                    src="./src/Img/icon.svg" alt="drop"> </button>
+                            <ul id="dropdown-options">
+                                <li class="dad">Dad</li>
+                                <li>Parents</li>
+                                <li class="mom">Mom</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+                <div class="nav">
+                    <button class="back"><a>back</a></button>
+                    <button class="cont"><a>continue</a></button>
+                </div>
             </div>
-            <div class="nav">
-                <button class="back"><a>back</a></button>
-                <button class="cont"><a>continue</a></button>
+            <div class="swiper-slide color-3">
+                <p>how do your family often communicate?</p>
+                <div class="opt3">
+                    <button class="cont"><a>talking casually among members</a></button>
+                    <button class="cont"><a>texting</a></button>
+                    <button class="cont"><a>both</a></button>
+                </div>
+                <div class="nav">
+                    <button class="back"><a>back</a></button>
+                    <button class="cont"><a>continue</a></button>
+                </div>
             </div>
-        </div>
-        <div class="swiper-slide color-3">
-            <p>how do your family often communicate?</p>
-            <div class="opt3">
-                <button class="cont"><a>talking casually among members</a></button>
-                <button class="cont"><a>texting</a></button>
-                <button class="cont"><a>both</a></button>
+            <div class="swiper-slide color-4">
+                <div class="paper">
+                    <span>we often talk about:</span>
+                    <div class="paper-content">
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <div class="nav">
+                    <button class="back"><a>back</a></button>
+                    <button class="cont"><a>continue</a></button>
+                </div>
             </div>
-            <div class="nav">
-                <button class="back"><a>back</a></button>
-                <button class="cont"><a>continue</a></button>
-            </div>
-        </div>
-        <div class="swiper-slide color-4">
-            <div class="paper">
-                <span>we often talk about:</span>
-                <div class="paper-content">
-                    <textarea></textarea>
-            </div>
-        </div>
-            <div class="nav">
-                <button class="back"><a>back</a></button>
-                <button class="cont"><a>continue</a></button>
-            </div>
-        </div>
-        <div class="swiper-slide color-5">
-            <p>what about you do you wish to share with your parents</p>
-            <div id="bg">
-                <img class="bg" src="./src/Img/1.svg" alt="img">
-                 </div>
-                 <div class="buttons">
+            <div class="swiper-slide color-5">
+                <p>what about you do you wish to share with your parents</p>
+                <div id="bg">
+                    <img class="bg" src="./src/Img/1.svg" alt="img">
+                </div>
+                <div class="buttons">
                     <div class="button-group">
                         <button id="A" draggable="true">work-life</button>
                         <button id="B" draggable="true">internal conflict</button>
@@ -103,55 +104,58 @@
                         <button id="H" draggable="true">love life</button>
                         <button id="J" draggable="true">expectations</button>
                     </div>
-                 </div>
-            <div class="nav">
-                <button class="back"><a>back</a></button>
-                <button class="cont"><a>continue</a></button>
-            </div>
-        </div>
-        <div class="swiper-slide color-6">
-            <p>every family is unique, and so should be their conversations. Let's create a game that speaks to the heart of your family.
-                <span>What kind of conversations do you want to inspire?</span>
-            </p>
-           
-            <div class="buttons" id="fix">
-                <div class="button-group">
-                    <button id="1">joyful chat</button>
-                    <button id="2">heart-to-heart</button>
-                    <button id="4">a fusion</button>
                 </div>
-                <div class="roundbg"></div>
+                <div class="nav">
+                    <button class="back"><a>back</a></button>
+                    <button class="cont"><a>continue</a></button>
+                </div>
             </div>
-            <div class="nav">
-                <button class="back"><a>back</a></button>
-                <button class="cont"><a>continue</a></button>
+            <div class="swiper-slide color-6">
+                <p>every family is unique, and so should be their conversations. Let's create a game that speaks to the
+                    heart of your family.
+                    <span>What kind of conversations do you want to inspire?</span>
+                </p>
+
+                <div class="buttons" id="fix">
+                    <div class="button-group">
+                        <button id="1">joyful chat</button>
+                        <button id="2">heart-to-heart</button>
+                        <button id="4">a fusion</button>
+                    </div>
+                    <div class="roundbg"></div>
+                </div>
+                <div class="nav">
+                    <button class="back"><a>back</a></button>
+                    <button class="cont"><a>continue</a></button>
+                </div>
             </div>
-        </div>
-        <div class="swiper-slide color-7">
-            <p>Please take a moment to review your responses. Make sure the information accurately represents your family dynamics, interests, values, and communication goals</p>
-            <div class="nav">
-                <button class="back"><a>back</a></button>
-                <button class="cont" id="submit">submit</button>
+            <div class="swiper-slide color-7">
+                <p>Please take a moment to review your responses. Make sure the information accurately represents your
+                    family dynamics, interests, values, and communication goals</p>
+                <div class="nav">
+                    <button class="back"><a>back</a></button>
+                    <button class="cont" id="submit">submit</button>
+                </div>
             </div>
-        </div>
-        <div class="swiper-slide color-8">
-            <div class="tiltle">
-            <p id="center">click your unwanted prompts</p>
-        </div>
-            <div id="answer"></div>
-            <div class="nav">
-               
-    <button id="generate">regenerate</button>
-    <button> <a href="/nghen/cart.html">everthing’s great</a></button>
+            <div class="swiper-slide color-8">
+                <div class="tiltle">
+                    <p id="center">click your unwanted prompts</p>
+                </div>
+                <div id="answer"></div>
+                <div class="nav">
+
+                    <button id="generate">regenerate</button>
+                    <button> <a href="/nghen/cart.html">everthing’s great</a></button>
+                </div>
             </div>
+
+
         </div>
-        
 
     </div>
-  
-</div>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/js/swiper.min.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="./src/sites/quizz/main.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/js/swiper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="./src/sites/quizz/main.js" defer></script>
 </body>
+
 </html>

@@ -257,6 +257,7 @@ buttonq.addEventListener('click', function() {
     const canvas5 = document.getElementById('canvasimg5');
     const canvas6 = document.getElementById('canvasimg6');
     const canvas7 = document.getElementById('canvasimg7');
+    const canvas8 = document.getElementById('canvasimg8');
     let img2;
     let img4 = new Image(); 
   
@@ -284,6 +285,8 @@ buttonq.addEventListener('click', function() {
             canvas6.height = img.height;
             canvas7.width = img.width;
             canvas7.height = img.height;
+            canvas8.width = img.width;
+            canvas8.height = img.height;
             const ctx1 = canvas1.getContext('2d');
             // Draw the image on the canvas
             ctx1.drawImage(img, 0, 0, canvas1.width, canvas1.height);
@@ -300,6 +303,8 @@ buttonq.addEventListener('click', function() {
             ctx6.drawImage(img, 0, 0, canvas6.width, canvas6.height);
             const ctx7 = canvas7.getContext('2d');
             ctx7.drawImage(img, 0, 0, canvas7.width, canvas7.height);
+            const ctx8 = canvas7.getContext('2d');
+            ctx8.drawImage(img, 0, 0, canvas8.width, canvas8.height);
             fileNameElement.textContent = file.name;
             //////
             const dataUrl = canvas4.toDataURL;
@@ -325,6 +330,8 @@ buttonq.addEventListener('click', function() {
         canvas6.height = 0;
         canvas7.width = 0;
         canvas7.height = 0;
+        canvas8.width = 0;
+        canvas8.height = 0;
         fileNameElement.textContent = '';
 
       }
@@ -560,6 +567,7 @@ const imgbox1 = document.getElementById('canvasimg3');
 const polybox = document.getElementById('canvasimg4');
 const rgb1 = document.getElementById('canvasimg5');
 const rgb2 = document.getElementById('canvasimg6');
+const pos = document.getElementById('canvasimg8');
 const img2bg = document.getElementById('img2bg');
 // Add a click event listener to the button
 // Use variables to track the state of each effect
@@ -570,6 +578,7 @@ let llActive = false;
 let coActive = false;
 let icActive = false;
 let siActive = false;
+let ssActive = false;
 
 // Function to hide imgbox1
 function hideImgBox1() {
@@ -724,13 +733,7 @@ function motionblur() {
     icActive = !icActive;
   });
 
-  const ss = document.getElementById('ss');
-
-// Add a click event listener to the button
-ss.addEventListener('click', () => {
-    // Toggle the 'posterize-filter' class on canvas3
-    imgbox.classList.toggle('posterize-filter');
-});
+  
 
 
 // Get references to the button and canvasimg5
@@ -920,6 +923,7 @@ $('#opacityRange').on('input', function(e) {
 
 divD.addEventListener('click', function() {
   if (!llActive) {
+    ll.classList.toggle('active');
       imgbox.style.filter = "invert(0) grayscale(0.1) contrast(100%) blur(1px) brightness(2)";
   } else {
       undofilterimgbox();
@@ -941,4 +945,19 @@ function setSelectedOption6() {
 divD.addEventListener('click', () => {
   // Call the function to set the selected method to "option6"
   setSelectedOption6();
+});
+
+const ss = document.getElementById('ss');
+
+
+ss.addEventListener('click', function() {
+  if (!ssActive) {
+    pos.classList.add('posterize');
+    pos.classList.remove('grain');
+  } else {
+    pos.classList.add('grain');
+    pos.classList.remove('posterize');
+  }
+
+  ssActive = !ssActive; // Toggle the state
 });

@@ -283,20 +283,20 @@ nav {
 }
 
 .swiper-slide.color-3.swiper-slide-active {
-    grid-template-columns: 1fr 1fr;
+
     align-items: center;
     color: black;
     position: relative;
     text-align: center;
     font-size: 18px;
     justify-content: center;
-    grid-template-rows: 1fr;
+
     display: grid !important;
 }
 
 .swiper-slide.color-3 p {
     justify-self: center;
-    width: 100%;
+    width: 60%;
     line-height: 114.7%;
     position: relative !important;
     top: unset !important;
@@ -1432,10 +1432,15 @@ div#box3text {
 }
 
 div#almost {
-    /* margin: 8em; */
-    width: 80%;
+    display: flex;
+    /* margin: 0em 8em; */
+    width: 100%;
+    /* padding: 10em; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
-
 
 .swiper-slide.color-4.swiper-slide-active {
 
