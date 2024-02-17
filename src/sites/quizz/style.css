@@ -254,9 +254,6 @@ nav {
     resize: none;
     overflow: hidden;
     font-family: 'm1', sans-serif !important;
-   
- 
-   
   }
 
   textarea:focus {
@@ -573,6 +570,51 @@ img.bg {
     justify-content: center;
     align-self: center;
 }
+
+
+img.bg1 {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #bg1 {
+    right:0;
+      position: absolute;
+      z-index: -1;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+  }
+
+  img.bg2 {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #bg2 {
+    right:0;
+      position: absolute;
+      z-index: -1;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+  }
+  
+  img.bg3 {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #bg3 {
+   
+    width: 100%;
+      position: absolute;
+      z-index: -1;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+  }
+  
 
 .swiper-slide.color-1.swiper-slide-active {
     grid-template-rows: 1fr 2fr 1fr;
