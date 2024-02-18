@@ -250,7 +250,7 @@ nav {
 }
 
 .swiper-slide.color-1 .nav {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
 
 
@@ -270,7 +270,7 @@ nav {
  
 
 .swiper-slide.color-1.swiper-slide-active {
-    grid-gap: 2em;
+    grid-gap: 1em;
     grid-template-rows: 1fr auto ;
     grid-template-columns: 1fr;
     color: black;
@@ -322,18 +322,35 @@ p.color2 {
      position: unset !important;
  }
  
-
+.nav1a{
+text-align: center;
+    color: black;
+    font-family: 's3', sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
 .swiper-slide.color-1 .nav {
-    height: 40px;
+    align-content: center;
+    z-index: 6;
+    position: unset !important;
+    /* padding-bottom: 1em; */
+    justify-content: center;
+ 
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    /* gap: 10em;
+    height: 40px; 
     position: unset !important;
     z-index: 6;
     /* height: 40px; */
-    display: flex;
-    gap: 10em;
-    align-content: center;
+  
+    /* gap: 10em; */
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
+    align-content: space-between;
 }
  
 
@@ -816,7 +833,7 @@ color: #797979b4;
     align-self: center;
     grid-gap: 1em;
     position: relative;
-    width: 90%;
+    width: 86%;
     height: 100%;
     grid-template-rows: 1fr;
     grid-template-columns: 3fr 2fr 2fr;
@@ -1637,3 +1654,48 @@ div#center {
     justify-items: center;
     height: fit-content;
 }
+
+img.bg {
+    width: 100%;
+    height: 90%;
+  }
+  
+  #bg {
+   
+    min-width: 100%;
+      position: absolute;
+      z-index: -1;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+  }
+
+  img.bg1 {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #bg1 {
+   
+    min-width: 100%;
+      position: absolute;
+      z-index: -1;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+  }
+
+  img.bg2 {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #bg2 {
+   
+    min-width: 100%;
+      position: absolute;
+      z-index: -1;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+  }

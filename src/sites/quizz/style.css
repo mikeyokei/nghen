@@ -578,6 +578,7 @@ img.bg1 {
   }
   
   #bg1 {
+    min-width: 100%;
     right:0;
       position: absolute;
       z-index: -1;
@@ -592,6 +593,7 @@ img.bg1 {
   }
   
   #bg2 {
+    min-width: 100%;
     right:0;
       position: absolute;
       z-index: -1;
@@ -651,7 +653,7 @@ img.bg1 {
   
   #bg6 {
    
-    width: 100%;
+    min-width: 100%;
       position: absolute;
       z-index: -1;
       display: flex;
