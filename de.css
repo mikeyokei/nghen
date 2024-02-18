@@ -1214,7 +1214,7 @@ display: block !important;
     width: 100%; 
   }
 
-.posterize-filter {
+.posterize {
     filter: url('#posterize');
 }
 

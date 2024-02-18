@@ -402,22 +402,7 @@ function applyAsciiEffectToCanvas2(image) {
   
   // Add event listener to the file input to handle file selection
   fileInput.addEventListener('change', handleImageUpload);
-  // Event listener for Button A
-  const applyAsciiButton = document.getElementById('llg');
   
-  let isAsciiApplied = false;
-
-applyAsciiButton.addEventListener('click', function () {
-  if (isAsciiApplied) {
-    // If the ASCII effect is already applied, remove it
-    removeAsciiEffect();
-  } else {
-    // If the ASCII effect is not applied, apply it
-    applyAsciiEffectToCanvas2(img2);
-  }
-  // Toggle the state of the ASCII effect
-  isAsciiApplied = !isAsciiApplied;
-});
 
 // Function to remove the ASCII effect
 function removeAsciiEffect() {
@@ -496,10 +481,12 @@ buttonglow1.addEventListener('click', () => {
         // Perform the action for button A here
         buttonglow2.style.color = 'B3B492';
         isdivBSelected = true;
+        isdivASelected = false;
       } else {
         navigateToPage1();
         buttonglow2.style.color = 'B3B492';
         isdivBSelected = true;
+        isdivASelected = false;
         isdivDSelected = false; // Reset the flag for button D
       }
     });
@@ -510,10 +497,12 @@ buttonglow2.addEventListener('click', () => {
         // Perform the action for button A here
         buttonglow1.style.color = 'B3B492';
         isdivASelected = true;
+        isdivBSelected = false;
       } else {
         navigateToPage2();
         buttonglow1.style.color = 'B3B492';
         isdivASelected = true;
+        isdivBSelected = false;
         isdivDSelected = false; // Reset the flag for button D
       }
     });
@@ -531,7 +520,7 @@ function navigateToPage1() {
 if (isdivBSelected && isdivDSelected) {
   buttonglow1.style.color = 'B3B492';
   // Redirect to page B
-  window.location.href = 'quizz.html';
+  window.location.href = 'physical.html#targetDiv';
 }
 }
 
@@ -551,15 +540,25 @@ const topics = document.querySelectorAll('.topic');
 
 topics.forEach(button => {
   button.addEventListener('click', () => {
-    button.classList.toggle('active'); // Toggle the 'active' class on button click
+    // Deselect all topics
+    topics.forEach(otherButton => {
+      if (otherButton !== button) {
+        otherButton.classList.remove('active');
+      }
+    });
+
+    // Toggle the 'active' class on the clicked button
+    button.classList.toggle('active'); 
   });
 });
+
 
 const mh = document.getElementById('mh');
 const wl = document.getElementById('wl');
 const ll = document.getElementById('ll');
 const co = document.getElementById('co');
 const topic = document.getElementsByClassName('topic');
+const exp = document.getElementById('exp');
 
 const none1 = document.getElementsByClassName('none');
 const imgbox = document.getElementById('canvasimg2');
@@ -579,6 +578,7 @@ let coActive = false;
 let icActive = false;
 let siActive = false;
 let ssActive = false;
+let expActive = false;
 
 // Function to hide imgbox1
 function hideImgBox1() {
@@ -605,6 +605,10 @@ imgbox1.style.filter = "";
 imgbox.style.filter = "";
 }
 
+function undoic() {
+  polybox.style.display = "none";
+  }
+
 // Function to hide imgbox1
 function removeexp() {
     imgbox1.style.display = "none";
@@ -621,8 +625,10 @@ function removeexp() {
 ////
 mh.addEventListener('click', function() {
     if (!mhActive) {
+      removeAsciiEffect();
       imgbox.style.filter = "invert(1)";
       canvas7.style.filter = "invert(1)";
+      undoic();
     } else {
       undofilterimgbox();
 
@@ -633,7 +639,10 @@ mh.addEventListener('click', function() {
 
 wl.addEventListener('click', function() {
     if (!wlActive) {
+      img2bg.style.display = "block";
+
       img2bg.style.background = "linear-gradient(90deg, #595959b0 47.44%, #ffffff00 60.94%)";
+      undoic();
     } else {
       undobgimg2();
     }
@@ -643,6 +652,8 @@ wl.addEventListener('click', function() {
 
 ll.addEventListener('click', function() {
     if (!llActive) {
+      removeAsciiEffect();
+      undoic();
       imgbox.style.filter = "invert(0) grayscale(0.1)  contrast(100%) blur(1px) brightness(1.5)";
       canvas7.style.filter = "invert(0) grayscale(0.1)  contrast(100%) blur(1px) brightness(1.5)";
     } else {
@@ -652,12 +663,13 @@ ll.addEventListener('click', function() {
     hideImgBox1();
   });
 
-  const exp = document.getElementById('exp');
 
-  let expActive = false; // Variable to track the state of the 'exp' effect
+
   
   exp.addEventListener('click', () => {
     if (!expActive) {
+      removeAsciiEffect();
+      undoic();
       // Apply the 'exp' effect when it's not active
       imgbox1.style.display = "block";
       imgbox1.classList.toggle('split');
@@ -675,6 +687,7 @@ ll.addEventListener('click', function() {
       imgbox1.style.filter = "";
       imgbox.style.filter = "";
       imgbox1.style.transform = "";
+      hideImgBox1();
     }
     
     expActive = !expActive; // Toggle the state of the 'exp' effect
@@ -704,18 +717,20 @@ function motionblur() {
 
   co.addEventListener('click', function() {
     if (!coActive) {
+      removeAsciiEffect();
         imgbox1.style.filter = "blur(1px) opacity(0.5)";
         imgbox.style.filter = '';
         imgbox1.style.transform = "scaleX(1.1) scaleY(1)";
-        
+        undoic();
       motionblur();
     } else {
-        
+      removeAsciiEffect();
+      hideImgBox1();
       removemotionblur() ;
       // Reset any other styles you want to remove here
     }
     coActive = !coActive;
-    hideImgBox1();
+
   });
 
 
@@ -726,8 +741,13 @@ function motionblur() {
    
    ic.addEventListener('click', function() {
     if (!icActive) {
+      removeAsciiEffect();
+      hideImgBox1();
+      
+      undoic();
         polybox.style.display = "block";
     } else {
+
         polybox.style.display = "none";
     }
     icActive = !icActive;
@@ -741,13 +761,16 @@ const si = document.getElementById('si');
 
 si.addEventListener('click', function() {
     if (!siActive) {
+      removeAsciiEffect();
+      undoic();
         rgb1.style.display = "block";
         rgb2.style.display = "block";
     
     } else {
+      hideImgBox1();
         rgb1.style.display = "none";
         rgb2.style.display = "none";
-       
+        undoic();
     }
     siActive = !siActive;
   });
@@ -905,7 +928,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 let min = 10;
-let max = 63;
+let max = 80;
 
 const calcLeftPosition = value => 100 / (100 - 10) *  (value - 10);
 
@@ -923,9 +946,12 @@ $('#opacityRange').on('input', function(e) {
 
 divD.addEventListener('click', function() {
   if (!llActive) {
+    removeAsciiEffect();
+    undoic();
     ll.classList.toggle('active');
       imgbox.style.filter = "invert(0) grayscale(0.1) contrast(100%) blur(1px) brightness(2)";
   } else {
+    undoic();
       undofilterimgbox();
   }
   llActive = !llActive;
@@ -952,12 +978,41 @@ const ss = document.getElementById('ss');
 
 ss.addEventListener('click', function() {
   if (!ssActive) {
-    pos.classList.add('posterize');
-    pos.classList.remove('grain');
+    hideImgBox1();
+    removeAsciiEffect();
+    undoic();
+
+    imgbox.classList.add('posterize');
+    imgbox.classList.remove('grain');
   } else {
-    pos.classList.add('grain');
-    pos.classList.remove('posterize');
+ 
+
+    hideImgBox1() ;
+    imgbox.classList.add('grain');
+    imgbox.classList.remove('posterize');
+    undoic();  
   }
+  img2bg.style.display = "none";
 
   ssActive = !ssActive; // Toggle the state
+});
+
+// Event listener for Button A
+const applyAsciiButton = document.getElementById('llg');
+  
+let isAsciiApplied = false;
+
+applyAsciiButton.addEventListener('click', function () {
+if (isAsciiApplied) {
+ 
+  undoic();
+  // If the ASCII effect is already applied, remove it
+  removeAsciiEffect();
+} else {
+  
+  // If the ASCII effect is not applied, apply it
+  applyAsciiEffectToCanvas2(img2);
+}
+// Toggle the state of the ASCII effect
+isAsciiApplied = !isAsciiApplied;
 });

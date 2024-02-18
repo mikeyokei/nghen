@@ -1307,7 +1307,7 @@ display: block !important;
   
 .slide {
     /* opacity: 0; */
-    width: 38%;
+    width: 100%;
     position: absolute;
     /* top: 0; */
     height: 4px;
@@ -1335,13 +1335,13 @@ display: block !important;
     border-radius: 50%;
     outline: none;
     top: -3em;
-    height: 6em;
-    width: 6em;
+    height: 5em;
+    width: 5em;
 }
 
 #opacityRange {
     /* left: 0; */
-    width: 100%;
+    width: 60%;
     -webkit-appearance: none;
 cursor: pointer;
     z-index: 3;
@@ -1367,7 +1367,7 @@ div#range {
 }
 
 #knob2 {
-    right: 0;
+    right: 20%;
     cursor: pointer;
     position: absolute;
     z-index: 2;
@@ -1377,8 +1377,8 @@ div#range {
     border-radius: 50%;
     outline: none;
     top: -3em;
-    height: 6em;
-    width: 6em;
+    height: 5em;
+    width: 5em;
 }
 
 #canvasimg7 {
@@ -1699,3 +1699,7 @@ img.bg {
       justify-content: center;
       align-self: center;
   }
+
+  .posterize {
+    filter: url('#posterize');
+}
